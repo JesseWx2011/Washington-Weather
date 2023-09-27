@@ -54,7 +54,7 @@ var flashtime  = 2000;       // miliseconds to keep flash color on (2000 = 2 sec
 var reloadTime = 10000;       // reload AJAX conditions every 5 seconds (= 5000 ms)
 var maxupdates = 12;	         // Maxium Number of updates allowed (set to zero for unlimited)
                              // maxupdates * reloadTime / 1000 = number of seconds to update
-var clientrawFile = 'clientraw.txt'; // location of clientraw.txt relative to this page on website
+var clientrawFile = 'https://cliftonvaweather.com/realtime.txt'; // location of clientraw.txt relative to this page on website
 var ajaxLoaderInBody = false; // set to true if you have <body onload="ajaxLoader(..."
 var imagedir = './ajax-images';  // place for wind arrows, rising/falling arrows, etc.
 var condIconType = '.jpg';   // ='.jpg' default, ='.gif' for animated meteotreviglio condition icons
