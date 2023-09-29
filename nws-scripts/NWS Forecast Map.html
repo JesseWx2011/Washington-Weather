@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0044)https://somdweather.com/NWS-forecast-map.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="initial-scale=1.0">
+<link rel="stylesheet" href="./NWS Forecast Map_files/NWS-forecast-map.css">
+<title>NWS Forecast Map</title>
+<style type="text/css">
+<!--
+body,td,th {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+.graytitles {
+  font-size:large;
+  text-align:center;
+  margin-top: 5px;
+}
+-->
+</style>
+</head>
+<body>
+<div>
+<p> </p>
+<script src="./NWS Forecast Map_files/leaflet.js.download" type="text/javascript"></script>
+<!-- NWS-forecast-map.php - V2.10 - 19-May-2019 -->
+<!-- curl fetching 'https://api.weather.gov/points/38.297,-76.483' -->
+<!-- HTTP stats:  RC=200 dest=23.47.64.15 port=443 (from sce=192.252.144.35)
+      Times: dns=0.001 conn=0.029 pxfer=0.066 get=0.043 total=0.109 secs -->
+<!-- distance=0 from California -->
+<!-- fcstURL='https://api.weather.gov/gridpoints/LWX/120,47/forecast' -->
+<!-- curl fetching 'https://api.weather.gov/gridpoints/LWX/120,47/forecast' -->
+<!-- HTTP stats:  RC=200 dest=23.47.64.15 port=443 (from sce=192.252.144.35)
+      Times: dns=0.001 conn=0.029 pxfer=0.066 get=0.073 total=0.139 secs -->
+<!-- fetching County alerts -->
+<!-- curl fetching 'https://api.weather.gov/alerts/active/zone/MDC037' -->
+<!-- HTTP stats:  RC=200 dest=23.47.64.15 port=443 (from sce=192.252.144.35)
+      Times: dns=0.001 conn=0.031 pxfer=0.068 get=0.065 total=0.133 secs -->
+<!-- expires '2023-09-29T13:30:00-04:00'  still active. -->
+<!-- alert 0='Coastal Flood Advisory issued September 29 at 5:23AM EDT until September 30 at 5:00AM EDT by NWS Baltimore MD/Washington DC' found expires='2023-09-29T13:30:00-04:00' -->
+<div style="width:621px; margin:0px auto 0px auto;">
+ <table cellspacing="0" cellpadding="0" style="width:100%; margin:0px auto 0px auto; border:1px solid black; background-color:#F5F8FE">
+  <tbody><tr>
+   <td style="text-align:center; padding:5px 0px 5px 0px">Land forecasts for the United States from the National Weather Service</td>
+  </tr>
+ </tbody></table>
+ <p> </p>
+<table width="611" cellspacing="3" cellpadding="3" style="color:black; line-height:1.2em; margin: 0px auto 0px auto; border:solid 4px #006699; background-color:#FFF">
+ <tbody><tr>
+  <td colspan="3">
+   <div style="margin: 6px auto 0px; text-align: center; width: 570px; height: 360px; border: 3px outset rgb(119, 119, 119); position: relative;" id="map_canvas" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+    <noscript>
+     <p><span style="font-size:14px;">Your JavaScript is disabled and preventing the map to load for you.</span></p>
+     <p>Enable your JavaScript in your browser to view the map and select a forecast for any US location.</p>
+    </noscript>
+       <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 3; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="./NWS Forecast Map_files/588" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(55px, -31px, 0px); opacity: 1;"><img alt="" role="presentation" src="./NWS Forecast Map_files/589" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(311px, -31px, 0px); opacity: 1;"><img alt="" role="presentation" src="./NWS Forecast Map_files/588(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(55px, 225px, 0px); opacity: 1;"><img alt="" role="presentation" src="./NWS Forecast Map_files/589(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(311px, 225px, 0px); opacity: 1;"><img alt="" role="presentation" src="./NWS Forecast Map_files/587" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-201px, -31px, 0px); opacity: 1;"><img alt="" role="presentation" src="./NWS Forecast Map_files/590" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(567px, -31px, 0px); opacity: 1;"><img alt="" role="presentation" src="./NWS Forecast Map_files/587(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-201px, 225px, 0px); opacity: 1;"><img alt="" role="presentation" src="./NWS Forecast Map_files/590(1)" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(567px, 225px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"><svg pointer-events="none" class="leaflet-zoom-animated" width="684" height="432" viewBox="-57 -36 684 432" style="transform: translate3d(-57px, -36px, 0px);"><g><path class="leaflet-interactive" stroke="#009900" stroke-opacity="1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="#7FF378" fill-opacity="0.2" fill-rule="evenodd" d="M286 165L281 206L322 211L327 171z"></path></g></svg></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="https://somdweather.com/NWS-forecast-map.php#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="https://somdweather.com/NWS-forecast-map.php#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div></div><div class="leaflet-top leaflet-right"><div class="leaflet-control-layers leaflet-control" aria-haspopup="true"><a class="leaflet-control-layers-toggle" href="https://somdweather.com/NWS-forecast-map.php#" title="Layers"></a><section class="leaflet-control-layers-list"><div class="leaflet-control-layers-base"><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_42"><span> Street</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_42"><span> Street2</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_42" checked="checked"><span> Terrain</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_42"><span> Topo</span></div></label></div><div class="leaflet-control-layers-separator" style="display: none;"></div><div class="leaflet-control-layers-overlays"></div></section></div></div><div class="leaflet-bottom leaflet-left"><div class="leaflet-control-scale leaflet-control"><div class="leaflet-control-scale-line" style="width: 83px;">5 km</div><div class="leaflet-control-scale-line" style="width: 81px;">3 mi</div></div></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | Tiles © <a href="https://www.esri.com/en-us/home" title="Sources: Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community">Esri</a> | Script by <a href="https://saratoga-weather.org/">Saratoga-weather.org</a></div></div></div></div>
+   <div style="text-align:center; font-size:12px;margin-top: 5px;">
+     <span style="color:#009900;font-size:large;font-weight:bolder;">☐ </span> Green box outlines the forecast area</div>
+  </td>
+ </tr>
+ <tr>
+  <td style="font-size:12px; padding-left:16px; color:#030">Zoom or drag the map for a precise location<br>Double-click the location for the latest forecast.</td>
+  <td style="width:32%; text-align:left; font-size:10px">LAT: &nbsp;<span id="latspan">38.2622</span><br>LON: &nbsp;<span id="lngspan">-76.4106</span></td>
+  <td style="float:right">
+   <form action="https://somdweather.com/NWS-forecast-map.php" method="get">
+   <div>
+    <input type="hidden" id="latlongclicked" name="llc">
+    <input type="hidden" id="currentzoom" name="zoom">
+    <input type="hidden" id="currentmap" name="map">
+    <input style="visibility:hidden;" id="theSubmitButton" type="submit" value="">
+   </div>
+   </form>
+  </td>
+ </tr>
+ <tr>
+  <td colspan="3" style="padding: 2px 10px 2px 10px"><hr></td>
+ </tr>
+ <tr>
+  <td colspan="3" style="text-align:center; font-size: 1.5em;"><b>California, MD</b></td>
+ </tr>
+ <tr>
+  <td colspan="3" style="padding-bottom: 6px; text-align:center; font-size: 0.8em">Updated 10:29 am EDT Sep 29, 2023</td>
+ </tr>
+</tbody></table>
+<table border="0" width="622" style="margin:5px auto 0px auto;border: thick solid red; background-color: #FF9;">
+ <tbody><tr>
+  <td class="alertbox" style="text-align: center;">
+    <b><a href="https://alerts-v2.weather.gov/products/urn:oid:2.49.0.1.840.0.a736361e1ecc4b86df654bf09ba6c21f73c20d99.001.2" title="* WHAT...Up to one half foot of inundation above ground level
+expected in low lying areas due to tidal flooding.
+
+* WHERE...Shoreline in St. Marys County.
+
+* WHEN...From noon today to 5 AM EDT Saturday, especially around
+the time of high tide.
+
+* IMPACTS...At 3.0 feet, yards are flooded on Saint George
+Island, and water will begin covering the road leading to the
+island, especially if there is wave action.
+
+* ADDITIONAL DETAILS...Tides one and a half to two feet above
+normal. The next high tide at Coltons Point is at 3:30 PM and
+3:58 AM. The next high tide at Point Lookout is at 2:00 PM and
+2:14 AM. The next high tide at Piney Point is at 2:54 PM and
+3:22 AM.">Coastal Flood Advisory issued September 29 at 5:23AM EDT until September 30 at 5:00AM EDT</a></b><br>
+  </td>
+</tr>
+</tbody></table>
+<table border="0" width="622" style="margin:0px auto 0px auto;">
+ <tbody><tr>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">This Afternoon</div>
+  </td>
+  <td>&nbsp;</td>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Tonight</div>
+  </td>
+ </tr>
+ <tr>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#FFFEE8; padding-bottom: 10px">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Areas Of Drizzle"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/rain" height="86" width="86" alt="Areas Of Drizzle" title="Areas of drizzle before 2pm. Mostly cloudy, with a high near 71. North wind around 12 mph.">
+    <div>
+      <span style="color:#800;">HIGH </span><span style="color:#800; font-size:1.5em;">
+       <b>71°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Areas of drizzle before 2pm. Mostly cloudy, with a high near 71. North wind around 12 mph.</span>
+    </div>
+    </td>
+  <td>&nbsp;</td>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#F2F2F2; padding-bottom: 10px;">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Patchy Fog"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/fog" height="86" width="86" alt="Patchy Fog" title="Patchy fog between 11pm and 5am. Mostly cloudy, with a low around 61. North wind around 12 mph.">
+    <div>
+      <span style="color:#008;">LOW </span><span style="color:#008; font-size:1.5em;">
+       <b>61°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Patchy fog between 11pm and 5am. Mostly cloudy, with a low around 61. North wind around 12 mph.</span>
+    </div>
+    </td>
+ </tr>
+</tbody></table>
+<table border="0" width="622" style="margin:0px auto 0px auto;">
+ <tbody><tr>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Saturday</div>
+  </td>
+  <td>&nbsp;</td>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Saturday Night</div>
+  </td>
+ </tr>
+ <tr>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#FFFEE8; padding-bottom: 10px">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Mostly Cloudy then Isolated Rain Showers"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/rain_showers,20" height="86" width="86" alt="Mostly Cloudy then Isolated Rain Showers" title="Isolated rain showers after 2pm. Mostly cloudy, with a high near 71. North wind around 13 mph. Chance of precipitation is 20%.">
+    <div>
+      <span style="color:#800;">HIGH </span><span style="color:#800; font-size:1.5em;">
+       <b>71°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Isolated rain showers after 2pm. Mostly cloudy, with a high near 71. North wind around 13 mph. Chance of precipitation is 20%.</span>
+    </div>
+    </td>
+  <td>&nbsp;</td>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#F2F2F2; padding-bottom: 10px;">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Isolated Rain Showers then Partly Cloudy"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/sct" height="86" width="86" alt="Isolated Rain Showers then Partly Cloudy" title="Isolated rain showers before 8pm. Partly cloudy, with a low around 60. North wind around 10 mph. Chance of precipitation is 20%.">
+    <div>
+      <span style="color:#008;">LOW </span><span style="color:#008; font-size:1.5em;">
+       <b>60°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Isolated rain showers before 8pm. Partly cloudy, with a low around 60. North wind around 10 mph. Chance of precipitation is 20%.</span>
+    </div>
+    </td>
+ </tr>
+</tbody></table>
+<table border="0" width="622" style="margin:0px auto 0px auto;">
+ <tbody><tr>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Sunday</div>
+  </td>
+  <td>&nbsp;</td>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Sunday Night</div>
+  </td>
+ </tr>
+ <tr>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#FFFEE8; padding-bottom: 10px">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Sunny"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/few" height="86" width="86" alt="Sunny" title="Sunny, with a high near 76. North wind 9 to 13 mph.">
+    <div>
+      <span style="color:#800;">HIGH </span><span style="color:#800; font-size:1.5em;">
+       <b>76°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Sunny, with a high near 76. North wind 9 to 13 mph.</span>
+    </div>
+    </td>
+  <td>&nbsp;</td>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#F2F2F2; padding-bottom: 10px;">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Mostly Clear"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/few(1)" height="86" width="86" alt="Mostly Clear" title="Mostly clear, with a low around 61.">
+    <div>
+      <span style="color:#008;">LOW </span><span style="color:#008; font-size:1.5em;">
+       <b>61°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Mostly clear, with a low around 61.</span>
+    </div>
+    </td>
+ </tr>
+</tbody></table>
+<table border="0" width="622" style="margin:0px auto 0px auto;">
+ <tbody><tr>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Monday</div>
+  </td>
+  <td>&nbsp;</td>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Monday Night</div>
+  </td>
+ </tr>
+ <tr>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#FFFEE8; padding-bottom: 10px">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Sunny"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/few" height="86" width="86" alt="Sunny" title="Sunny, with a high near 78.">
+    <div>
+      <span style="color:#800;">HIGH </span><span style="color:#800; font-size:1.5em;">
+       <b>78°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Sunny, with a high near 78.</span>
+    </div>
+    </td>
+  <td>&nbsp;</td>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#F2F2F2; padding-bottom: 10px;">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Mostly Clear"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/few(1)" height="86" width="86" alt="Mostly Clear" title="Mostly clear, with a low around 61.">
+    <div>
+      <span style="color:#008;">LOW </span><span style="color:#008; font-size:1.5em;">
+       <b>61°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Mostly clear, with a low around 61.</span>
+    </div>
+    </td>
+ </tr>
+</tbody></table>
+<table border="0" width="622" style="margin:0px auto 0px auto;">
+ <tbody><tr>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Tuesday</div>
+  </td>
+  <td>&nbsp;</td>
+  <td class="graybox" style="width: 311px;">
+    <div class="graytitles">Tuesday Night</div>
+  </td>
+ </tr>
+ <tr>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#FFFEE8; padding-bottom: 10px">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Sunny"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/few" height="86" width="86" alt="Sunny" title="Sunny, with a high near 77.">
+    <div>
+      <span style="color:#800;">HIGH </span><span style="color:#800; font-size:1.5em;">
+       <b>77°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Sunny, with a high near 77.</span>
+    </div>
+    </td>
+  <td>&nbsp;</td>
+      <td style="vertical-align: top; border:solid 4px #006699; width: 311px; background-color:#F2F2F2; padding-bottom: 10px;">
+    <div style="text-align: center; font-size:110%; padding: 6px 0px 16px 0px;"><i>"Mostly Clear"</i></div>
+    <div style="vertical-align: top; padding: 0px 8px 0px 8px; text-align: justify">
+    <img style="float: left; border-style: none; padding-right: 8px" src="./NWS Forecast Map_files/few(1)" height="86" width="86" alt="Mostly Clear" title="Mostly clear, with a low around 59.">
+    <div>
+      <span style="color:#008;">LOW </span><span style="color:#008; font-size:1.5em;">
+       <b>59°</b>
+      </span>
+    </div>
+    <span style="font-size:.9em">Mostly clear, with a low around 59.</span>
+    </div>
+    </td>
+ </tr>
+</tbody></table>
+<script type="text/javascript">
+// <![CDATA[
+// Leaflet/OpenStreetMap+other tile providers MAP production code
+// Map tile providers:
+var Mstreet = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Points &copy 2012 LINZ | Script by <a href="https://saratoga-weather.org/">Saratoga-weather.org</a>',
+			mapname: "Street"
+			});
+var Mstreet2 = L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a> | Script by <a href="https://saratoga-weather.org/">Saratoga-weather.org</a>',
+			mapname: "Street2"
+			});
+var Mterrain = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+			maxZoom: 18,
+			attribution: 'Tiles &copy; <a href="https://www.esri.com/en-us/home" title="Sources: Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community">Esri</a> | Script by <a href="https://saratoga-weather.org/">Saratoga-weather.org</a>',
+			mapname: "Terrain"
+			});
+
+// skipping Terrain2 due to http only map tile link while our page is https
+
+var Mtopo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+			maxZoom: 15,
+			attribution: ' &copy; <a href="https://opentopomap.org/">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>) | Data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. | Script by <a href="https://saratoga-weather.org/">Saratoga-weather.org</a>',
+			mapname: "Topo"
+			});
+
+// skipping Mapbox - Terrain3 since $mapboxAPIkey is not set
+
+
+// skipping Mapbox - Satellite since $mapboxAPIkey is not set
+
+// end of map tile providers
+
+var baseLayers = {
+  "Street": Mstreet,
+  "Street2": Mstreet2,
+  "Terrain": Mterrain,
+  "Topo": Mtopo
+};	
+var map = L.map('map_canvas', {
+		center: new L.latLng([38.297,-76.483]), 
+		zoom: 11,
+		layers: [Mterrain],
+		doubleClickZoom: false,
+		scrollWheelZoom: false
+		});
+
+var selMap = 'Terrain';
+	 // console.log('initial selMap='+selMap);	
+
+  L.control.scale().addTo(map);
+  L.control.layers(baseLayers).addTo(map);
+
+// draw the gridpoint forecast area as a polygon
+  var polyfa = [
+  [38.3050389,-76.4816714],
+  [38.2830387,-76.4855238],
+  [38.2800141,-76.4575068],
+  [38.302014,-76.4536486],
+  [38.3050389,-76.4816714],
+  ];
+	
+ var mapolyfa = new L.polygon(polyfa,{
+  opacity: 1.0,
+  color: "#009900",
+  strokeOpacity: 0.9,
+  weight: 2.5,
+  fillColor: "#7FF378",
+  fillOpacity: 0.20,
+	title: "Forecast Area"
+ }).addTo(map);
+
+  mapolyfa.bindTooltip("Forecast Area for California", 
+   { sticky: true,
+     direction: "auto"
+   });
+
+// display mouse lat/long in page as mouse moves	 
+ function mouseMove (e) {
+   document.getElementById('latspan').innerHTML = e.latlng.lat.toFixed(4)
+   document.getElementById('lngspan').innerHTML = e.latlng.lng.toFixed(4)
+ }
+ map.on('mousemove',mouseMove);
+
+// do 'submit' with mouse lat/long+current zoom as args  
+ function mouseDoubleClicked (e) {
+   document.getElementById('latlongclicked').value = e.latlng.lat.toFixed(4) + ',' + e.latlng.lng.toFixed(4);
+   document.getElementById('currentzoom').value = map.getZoom();
+   document.getElementById('currentmap').value = selMap;
+   document.getElementById('theSubmitButton').click();
+	 // console.log('submit selMap='+selMap)	
+ }
+ map.on('dblclick',mouseDoubleClicked);
+ 
+ function mapbasechg (e) {
+   document.getElementById('currentmap').value = e.name;
+	 selMap = e.name;
+	 //console.log('mapchange selMap='+e.name)	
+ }
+ 
+ map.on('baselayerchange',mapbasechg);
+
+// ]]>
+</script>
+<p style="text-align:center;"><small>Script by <a href="https://saratoga-weather.org/">Saratoga-weather.org</a>. 
+Data provided by <a href="https://www.weather.gov/">NOAA/NWS</a></small> </p>
+</div>
+</div>
+<div id="hide_footer">
+<img src="./NWS Forecast Map_files/button.php" width="0" height="0" alt="">
+</div>
+
+</body></html>
