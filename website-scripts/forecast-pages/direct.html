@@ -1,21 +1,73 @@
- <form action="" method="get">
- <p><select name="/z" onchange="this.form.submit()">
- <option value=""> - Select Forecast - </option>
-          <option value="0">Washington, DC</option>
-     <option value="1">Camp Springs, MD</option>
-     <option value="2">Fairfax, VA</option>
-     <option value="3.html">Crystal City, VA</option>
-     <option value="4">La Plata, MD</option>
-     <option value="5">Dale City, VA</option>
-     <option value="6">Baltimore, MD</option>
-     <option value="7">Annapolis, MD</option>
-     <option value="8">Fredricksburg, VA</option>
-     <option value="9">Hagerstown, MD</option>
-     <option value="10">Richmond, VA</option>
-     <option value="11">Beckley, WV</option>
-     <option value="12">Salisbury, MD</option>
-     </select></p>
-	 <div><noscript><pre><input name="submit" type="submit" value="Get Forecast" /></pre></noscript></div>
-	 </form>
-	</td>
- </tr>
+<style>
+  body{
+  background: transparent;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+button{
+  border:none;
+  border-radius:5px;
+  padding:15px 30px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+button:hover{
+  background-color:#ddd;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  overflow: auto;
+  background-color:#fff;
+  border-radius:5px;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+
+.dropdown:hover .dropdown-options {
+  display: block;
+}
+
+.dropdown-options a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+  padding:20px 40px;
+}
+
+.dropdown-options a:hover {
+  color: #0a0a23;
+  background-color: #ddd;
+  border-radius:5px;
+}
+</style>
+
+<html>
+<div class="dropdown">
+  <button>Profile</button>
+  <div class="dropdown-options">
+    <a href="z1.html">Washington, DC</a>
+    <a href="z2.html">Fairfax, VA</a>
+    <a href="z3.html">Camp Springs, MD</a>
+    <a href="z4.html">Bethesda, MD</a>
+    <a href="z5.html">Dale City, VA</a>
+    <a href="z6.html">Ashburn, VA</a>
+    <a href="z7.html">Annapolis, MD</a>
+    <a href="z7.html">Fredricksburg, VA</a>
+    <a href="z8.html">Baltimore, MD</a>
+  </div>
+</div>
+</html>
+  
+  
+  
