@@ -2,7 +2,7 @@
 
 <h2>Here is a sample of what the webpage will look like in Weather Display:</h2>
 
-<img src=https://github.com/JesseLikesWeatherakaYoshiKart/Washington-Weather/blob/main/website-scripts/weather-display-templates/saratoga-weather/USA%20Website%20with%20PHP%20&%20AJAX%20-%20Home.png?raw=true</img>
+<img src="https://github.com/JesseLikesWeatherakaYoshiKart/Washington-Weather/blob/main/website-scripts/weather-display-templates/saratoga-weather/USA%20Website%20with%20PHP%20&%20AJAX%20-%20Home.png?raw=true"</img>
 
 <h1>Instructions</h1>
 
