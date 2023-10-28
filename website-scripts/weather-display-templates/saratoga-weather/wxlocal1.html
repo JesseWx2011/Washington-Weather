@@ -1,4 +1,3 @@
-
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
     <!-- ##### start AJAX mods ##### -->
     <!-- AJAX updates by Ken True - http://saratoga-weather.org/wxtemplates/ -->
@@ -165,35 +164,30 @@ visibility:visible;
 		  <span class="ajax" id="gizmocurrentcond" lastobs="Night time, Dry, Mostly cloudy" style="">Night time, Dry, Mostly cloudy</span>
 		</span>
 		<span class="ajaxcontent1" style="display: inline;">Temperature: 
-			<span class="ajax" id="gizmotemp" lastobs="49.5&amp;deg;F" style="">49.5Â°F</span>
+			<span class="ajax" id="gizmotemp" lastobs="%temp%" style="">%temp%</span>
             
-	        <span class="ajax" id="gizmotemparrow" lastobs="<img src=&quot;./ajax-images/falling.gif&quot; alt=&quot;Colder 0.4 &amp;deg;F than last hour.&quot; title=&quot;Colder 0.4 &amp;deg;F than last hour.&quot; width=&quot;7&quot; height=&quot;8&quot; style=&quot;border: 0; margin: 1px 3px;&quot; />" style=""><img src="./ajax-images/falling.gif" alt="Colder 0.4 Â°F than last hour." title="Colder 0.4 Â°F than last hour." width="7" height="8" style="border: 0; margin: 1px 3px;"></span>&nbsp;
-			<span class="ajax" id="gizmotemprate" lastobs="-0.4&amp;deg;F" style="">-0.4Â°F</span>/hr		</span>
+	        &nbsp;
+			<span class="ajax" id="gizmotemprate" lastobs="%tempchangehour%" style="">%tempchangehour%</span>/hr		</span>
 		<span class="ajaxcontent2" style="display: none;">Humidity: 
-		  <span class="ajax" id="gizmohumidity" lastobs="81" style="">81</span>%&nbsp;		</span>
+		  <span class="ajax" id="gizmohumidity" lastobs="%hum%" style="">%hum%</span>%&nbsp;		</span>
 		<span class="ajaxcontent3" style="display: none;">Dew Point: 
-		  <span class="ajax" id="gizmodew" lastobs="43.9&amp;deg;F" style="">43.9Â°F</span><img src="./ajax-images/falling.gif" alt="Decreased 0.4Â°F since last hour." title="Decreased 0.4Â°F since last hour." width="7" height="8" style="border: 0; margin: 1px 3px;">		</span>
+		  <span class="ajax" id="gizmodew" lastobs="%dew%" style="">%dew%</span>		</span>
 		<span class="ajaxcontent4" style="display: none;">Wind: 
-	    	<span class="ajax" id="gizmowindicon" lastobs="<img src=&quot;./ajax-images/SW.gif&quot; width=&quot;14&quot; height=&quot;14&quot; alt=&quot;Wind from SW&quot; title=&quot;Wind from SW&quot; /> " style=""><img src="./ajax-images/SW.gif" width="14" height="14" alt="Wind from SW" title="Wind from SW"> </span> 
-			<span class="ajax" id="gizmowinddir" lastobs="SW" style="">SW</span>&nbsp; 
-			<span class="ajax" id="gizmowind" lastobs="1.0 mph" style="">1.0 mph</span>
+	    	 
+			<span class="ajax" id="gizmowinddir" lastobs="%dirlabel%" style="">%dirlabel%</span>&nbsp; 
+			<span class="ajax" id="gizmowind" lastobs="%avgspd%" style="">%avgspd%</span>
 		</span>
 		<span class="ajaxcontent5" style="display: none;">Gust: 
-  			<span class="ajax" id="gizmogust" lastobs="1.2 mph" style="">1.2 mph</span>
+  			<span class="ajax" id="gizmogust" lastobs="%gstspd%" style="">%gstspd%</span>
 		</span>
 		<span class="ajaxcontent6" style="display: none;">Barometer: 
-    		<span class="ajax" id="gizmobaro" lastobs="29.84 inHg" style="">29.84 inHg</span><img src="./ajax-images/rising.gif" alt="Rising 0.01  inHg/hr" title="Rising 0.01  inHg/hr" width="7" height="8" style="border: 0; margin: 1px 3px;">&nbsp;
-             <span class="ajax" id="gizmobarotrendtext" lastobs="Steady" style="">Steady</span>			
+    		<span class="ajax" id="gizmobaro" lastobs="%baro%" style="">%baro%</span>&nbsp;
+             <span class="ajax" id="gizmobarotrendtext" lastobs="Steady" style="">%pressuretrendname%</span>			
 		</span> 
 		<span class="ajaxcontent7" style="display: none;">Rain Today: 
-    		<span class="ajax" id="gizmorain" lastobs="0.00 in" style="">0.00 in</span>
+    		<span class="ajax" id="gizmorain" lastobs="%dayrn%" style="">%dayrn%</span>
 		</span>
-		<span class="ajaxcontent8" style="display: none;">UV Index: 
-           <span class="ajax" id="gizmouv" lastobs="0.0" style="">0.0</span>&nbsp;
-		   <span style="color: #ffffff">
-	         <span class="ajax" id="gizmouvword" lastobs="None" style="">None</span>
-		   </span>
-		</span>
+		
 	  </div>
 	  <!-- ##### end of AJAX gizmo  ##### -->
 
@@ -318,7 +312,7 @@ Array
 
 <!-- nws-alerts box -->
 <div style="width:99%; border:solid thin #006699; margin:0px auto 0px auto;">
- <div style=" background-color:#E6E6E3; color: #000; padding:4px 8px 4px 8px; text-align: center"><a href="wxadvisory.php" title=" &nbsp;View summary" style="text-decoration:none; color: #000;">No Warnings, Watches, or Advisories</a></div>
+ <div style=" background-color:#E6E6E3; color: #000; padding:4px 8px 4px 8px; text-align: center">%NOAAEvent% active for Maryland Zone 13.</div>
 </div>
 <script type="text/javascript" src="nws-alertmap.js"></script>
 <div class="column-dark">
@@ -329,7 +323,7 @@ Array
 <!-- using https://s.w-x.co/staticmaps/wu/wu/satir1200_cur/usasw/animate.png for left map of WU South West Satellite -->
   <table width="99%" style="border: none">
   <tbody><tr><td align="center">
-	    <img src="https://radar.weather.gov/ridge/standard/PACSOUTHWEST_loop.gif" alt="NWS Southwest Regional Radar" title="NWS Southwest Regional Radar" width="320" height="240" style="margin: 0px; padding: 0px; border: none">
+	    <iframe src="https://www.rainviewer.com/map.html?loc=38.8161,-77.0888,9&amp;oFa=1&amp;oC=0&amp;oU=0&amp;oCS=1&amp;oF=0&amp;oAP=0&amp;c=6&amp;o=80&amp;lm=1&amp;layer=radar&amp;sm=1&amp;sn=1&amp;hu=true" width="100%" frameborder="0" style="border:0;height:50vh;" allowfullscreen=""></iframe>
   </td>
   <td align="center">
 	    <img src="https://s.w-x.co/staticmaps/wu/wu/satir1200_cur/usasw/animate.png" alt="WU South West Satellite" title="WU South West Satellite" width="320" height="240" style="margin: 0px; padding: 0px; border: none">
@@ -391,12 +385,12 @@ array (
         <tbody><tr align="center">
           <td class="data1" colspan="4" style="text-align: center">
 		    <span class="ajax" id="ajaxindicator" style="" lastobs="Updates paused - reload page to start">Updates paused - reload page to start</span>&nbsp;@ 
-		    <span class="ajax" id="ajaxdate" lastobs="10/12/2023" style="">10/12/2023</span>&nbsp;<span class="ajax" id="ajaxtime" lastobs="6:25:43am" style="">6:25:43am</span>
+		    &nbsp;<span class="ajax" id="ajaxtime" lastobs="%timesec%" style="">%timesec%</span>
                         <script type="text/javascript">
 <!--
 document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
 //-->
-            </script><b> - updated <span id="ajaxcounter">1267</span>&nbsp;sec ago</b>
+            </script><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter">1267</span>&nbsp;sec ago</b>
                       </td>
         </tr>
         <tr align="center">
@@ -410,7 +404,7 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
 		    <table width="180" border="0" cellpadding="2" cellspacing="0">
 			  <tbody><tr>
 				<td align="center" valign="top" class="data1" style="text-align: center;border: none">
-				<span class="ajax" id="ajaxconditionicon2" lastobs="<img src=&quot;./ajax-images/novc.jpg&quot; width=&quot;55&quot; height=&quot;58&quot; alt=&quot;Current condition icon&quot; />" style=""><img src="./ajax-images/novc.jpg" width="55" height="58" alt="Current condition icon"></span> 
+				<span class="ajax" id="ajaxconditionicon2" lastobs="<img src=&quot;./ajax-images/novc.jpg&quot; width=&quot;55&quot; height=&quot;58&quot; alt=&quot;Current condition icon&quot; />" style=""><img src="forecasticonmetar.gif" width="55" height="58" alt="Current condition icon"></span> 
 				</td>
 				<td class="data1" style="text-align: center;border: none"><span class="ajax" id="ajaxcurrentcond" lastobs="Night time, Dry, Mostly cloudy" style="">%weatherreport%</span> 
 				</td>
@@ -422,9 +416,11 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
                 <td class="data1" style="text-align: center;border: none" valign="middle">
 				  <span class="ajax" id="ajaxtemp" style="font-size: 20px;" lastobs="49.5&amp;deg;F">%temp%</span>
 				  <br>
-				  <span class="ajax" id="ajaxtemparrow" lastobs="<img src=&quot;./ajax-images/falling.gif&quot; alt=&quot;Colder 0.4 &amp;deg;F than last hour.&quot; title=&quot;Colder 0.4 &amp;deg;F than last hour.&quot; width=&quot;7&quot; height=&quot;8&quot; style=&quot;border: 0; margin: 1px 3px;&quot; />" style=""><img src="./ajax-images/falling.gif" alt="Colder 0.4 Â°F than last hour." title="Colder 0.4 Â°F than last hour." width="7" height="8" style="border: 0; margin: 1px 3px;"></span>
+				  
 				  <br><br>
-                  <span class="ajax" id="ajaxheatcolorword" lastobs="<span style=&quot;border: solid 1px; color: black; background-color: #89B2EA;&quot;>&amp;nbsp;Cool&amp;nbsp;</span>" style=""><span style="border: solid 1px; color: black; background-color: #%heathtml%;">&nbsp;%heatcolourword%&nbsp;</span></span>
+                  <span class="ajax" id="ajaxheatcolorword" lastobs="<span style=&quot;border: solid 1px; color: black; background-color: #%currenttemphtml%;&quot;>&nbsp;Cool&nbsp;</span>" style="
+    background-color: #%currenttemphtml%;
+"><span style="border: solid 1px; color: black; background-color: #%heathtml%;">&nbsp;%heatcolourword%&nbsp;</span></span>
                   <br><br>
                                     Feels like: %feelslike%&amp;deg;F 
 				  <br><br>
@@ -538,7 +534,9 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
 		    <table border="0" cellpadding="2" cellspacing="0">
               <tbody><tr>
                 <td class="data1" align="center" style="font-size: 8pt; border:none;text-align: center">
-				  <strong>%5dayforecastdayday1%<br><br></strong><img src="forecasticon5day1.gif" alt="" title="%5dayforecastday1%"><br>%5dayforecastday1%<br>			   </td>
+				  <strong>%5dayforecastdayday1%<br><br></strong><img src="forecasticon5day1.gif" alt="" title="%5dayforecastday1%" style="
+    width: 55px;
+"><br>%5dayforecastday1%<br>			   </td>
               </tr>
             </tbody></table>
 		  </td>
@@ -604,16 +602,14 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
           <td rowspan="3" valign="middle" align="center">
 		    <table border="0" cellpadding="4" cellspacing="0">
               <tbody><tr>
-                <td class="data1" style="text-align: center; border: none;">
-				  Waning Crescent				</td>
+                <td class="data1" style="text-align: center; border: none;">%moonphasename%</td>
               </tr>
               <tr>
                 <td style="text-align: center;"><img src="./ajax-images/moon27.gif" alt="Waning Crescent, Moon at 27 days in cycle" title="Waning Crescent, Moon at 27 days in cycle" width="48" height="48" style="border: 0;">
 			    </td>
               </tr>
               <tr>
-                <td class="data1" style="text-align: center; border: none;">
-				  5%                    <br>
+                <td class="data1" style="text-align: center; border: none;">%moonphase%<br>
                   Illuminated				</td>
               </tr>
             </tbody></table>
@@ -639,13 +635,17 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
        <td align="center">
 	    <table width="620" border="0" cellpadding="3" cellspacing="3">
            <tbody><tr>
-		   <td class="data1" style="width: 80px;font-size: 8pt;border: none;text-align: center" valign="middle" align="center"><strong><strong>%5dayforecastdayday1%<br><br></strong><img src="forecasticon5day1.gif" alt=" %forecasticonword%" title="%5dayforecastday1%."><br><br></strong><br></td>
+		   <td class="data1" style="width: 80px;font-size: 8pt;border: none;text-align: center" valign="middle" align="center"><strong><strong>%5dayforecastdayday1%<br><br></strong><img src="forecasticon5day1.gif" alt=" %forecasticonword%" title="%5dayforecastday1%." style="
+    width: 55px;
+"><br><br></strong><br></td>
            <td style="width: 504px;" class="data1"><b>NWS forecast:</b> %5dayforecastday1%<br>
 		   	    </td>
            </tr>
 		   <tr><td colspan="2">&nbsp;</td></tr>
            <tr>
-		   <td class="data1" style="width: 80px;font-size: 8pt; border:none; text-align: center" valign="middle" align="center"><strong><strong>%5dayforecastdayday2%<br><br></strong><img src="forecasticon5day2.gif" alt="" title="%5dayforecastdayday2%: %5dayforecastdayday2%:"><br><br></strong><br></td>
+		   <td class="data1" style="width: 80px;font-size: 8pt; border:none; text-align: center" valign="middle" align="center"><strong><strong>%5dayforecastdayday2%<br><br></strong><img src="forecasticon5day2.gif" alt="" title="%5dayforecastdayday2%: %5dayforecastdayday2%:" style="
+    width: 55px;
+"><br><br></strong><br></td>
            <td style="width: 504px;" class="data1"><b>NWS forecast:</b>%5dayforecastday2%</td>
            </tr>
        </tbody></table>
@@ -669,26 +669,11 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
       <div class="doNotPrint">
         <a href="#header">Top</a> |
 
-        <a href="mailto:somebody@somemail.org" title="E-mail us">Contact Us</a>
-        <script type="text/javascript">
-        <!--
-        if (navigator.appName == 'Microsoft Internet Explorer' && 
-        parseInt(navigator.appVersion) >= 4)
-        {
-        document.write('| <a href=\"#\" onclick=\"javascript:window.external.AddFavorite        (location.href,document.title)\">');
-        document.write('Bookmark Page</a>');
-        }else
-        {var msg = '| <a href="" title="Bookmark Page" onClick="alert(' + "'Hit CTRL-D to bookmark this page'"+ ');">Bookmark Page</a>';
-        if(navigator.appName == "Netscape") msg += " (CTRL-D)";
-document.write(msg);
-        }
-        // -->
-        </script>| <a href="" title="Bookmark Page" onclick="alert('Hit CTRL-D to bookmark this page');">Bookmark Page</a> (CTRL-D)
       </div><!-- end doNotPrint -->
 
       <div>
 
-        Â© 2023, Your Weather Website<span class="doNotPrint"> |  
+         2023, Your Weather Website<span class="doNotPrint"> |  
           <a href="http://www.weather-display.com/" title="Powered by Weather-Display">Weather-Display		   (10.37S-(b149)) </a> |
 		  <a href="https://validator.w3.org/check?uri=referer">Valid 
           XHTML 1.0</a> |
@@ -698,6 +683,7 @@ document.write(msg);
       </div>
     </div><!-- end id="footer" -->
   </div><!-- end id="page" wrapper -->
-  
+   
+
 
 </body></html>
