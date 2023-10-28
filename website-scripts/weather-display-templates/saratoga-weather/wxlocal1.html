@@ -1,4 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" style="
+    font-family: Intrerstate;
+"><head>
     <!-- ##### start AJAX mods ##### -->
     <!-- AJAX updates by Ken True - http://saratoga-weather.org/wxtemplates/ -->
         <script type="text/javascript"> var usingWeeWX = false; </script>
@@ -128,14 +130,18 @@ visibility:visible;
 <!-- World-ML template from http://saratoga-weather.org/wxtemplates/ -->
 <!-- end of top -->
 </head>
-<body>
+<body style="
+    font-family: Interstate;
+">
 <!-- nws-alerts noCron=true .. running nws-alerts.php inline -->
 <!-- nws-alerts.php - V1.44 - 13-May-2023 -->
-<!-- 4 unique Zone entries found. Zones='CAZ513,CAC085,CAZ529,CAC087' -->
+<!-- 4 unique Zone entries found. Zones='VAZ098,MDZ013,DCZ001,MDC512' -->
 <!-- cache age 28 seconds - no fetch needed -->
 <!-- Cron job not used -->
 <!-- Total process time: 0.0002 seconds -->
-<div id="page"><!-- page wrapper -->
+<div id="page" style="
+    font-family: Interstate;
+"><!-- page wrapper -->
 <!-- header -->
     <div id="header" style="
     background-color: #20d062;
@@ -312,18 +318,23 @@ Array
 </div><!-- end doNotPrint -->	
 <!-- end of menubar -->
 
-<div id="main-copy">
+<div id="main-copy" style="
+    font-family: Interstate;
+">
     
 
 <!-- nws-alerts box -->
 <div style="width:99%; border:solid thin #006699; margin:0px auto 0px auto;">
- <div style=" background-color:#E6E6E3; color: #000; padding:4px 8px 4px 8px; text-align: center">%NOAAEvent% active for Maryland Zone 13.</div>
+ <div style=" background-color:#E6E6E3; color: #000; padding:4px 8px 4px 8px; text-align: center">%NOAAEvent% active for MDZ013</div>
 </div>
 <script type="text/javascript" src="nws-alertmap.js"></script>
 <div class="column-dark" style="
     width: 1150px;
+    font-family: Unterstate;
 ">
-<div align="center">
+<div align="center" style="
+    font-family: Interstate;
+">
   <br>
 <!-- USA-regional-maps-inc.php V1.03 - 05-Apr-2021 -->
 <!-- using https://radar.weather.gov/ridge/standard/PACSOUTHWEST_loop.gif for left map of NWS Southwest Regional Radar -->
@@ -339,11 +350,13 @@ Array
   </td>
   </tr>
   <tr><td colspan="2" align="center"><small>Radar/Satellite images courtesy of
-  <a href="https://radar.weather.gov">NOAA/NWS</a> and  
+  <a href="https://www.rainviewer.com/weather-radar-map-live.html">Rainviewer</a> and  
   <a href="https://www.weatherunderground.com">Weather Underground</a>.</small></td></tr>
   </tbody></table>
 	
-	<div align="center">
+	<div align="center" style="
+    font-family: Interstate;
+">
 	<!--  ajax-dashboard.php - Version 1.34 - 03-Apr-2023 - Multilingual -->
 <!-- fcstby='' fcstscript='advforecast2.php' fcstorg='NWS' -->
 <!-- advforecast2.php (JSON) - V5.19 - 27-Dec-2022 on PHP 8.1.24-->
@@ -389,10 +402,11 @@ array (
 <!-- no current hazard alerts for CAZ513 -->
 <!-- Lang='en' -->
 <!-- start of ajax-dashboard.php -->
-<div class="ajaxDashboard" style="width: 1150px;">
-      <table width="1150" border="0" cellpadding="2" cellspacing="1" style="border:solid;border-color: #CCCCCC;">
+<div class="ajaxDashboard" style="width: 1150px;font-family: Interstate;">
+      <table width="1150" border="0" cellpadding="2" cellspacing="1" style="font-family: Interstate;border:solid;border-color: #CCCCCC;">
         <tbody style="
     width: 250px;
+    font-family: Interstate;
 "><tr align="center">
           <td class="data1" colspan="4" style="text-align: center">
 		    <span class="ajax" id="ajaxindicator" style="" lastobs="Updates paused - reload page to start">Updates paused - reload page to start</span>&nbsp;@ 
@@ -404,13 +418,17 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
             </script><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter">1267</span>&nbsp;sec ago</b>
                       </td>
         </tr>
-        <tr align="center">
+        <tr align="center" style="
+    font-family: Interstate;
+">
           <td class="datahead">Summary / Temperature</td>
           <td class="datahead">Wind</td>
 	            <td class="datahead">Rain</td>
 	           <td class="datahead">Outlook</td>
         </tr>
-        <tr align="left">
+        <tr align="left" style="
+    font-family: Interstate;
+">
           <td valign="top" rowspan="5">
 		    <table width="180" border="0" cellpadding="2" cellspacing="0">
 			  <tbody><tr>
@@ -468,7 +486,7 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
                           </tbody></table>
 		  </td>
           <td valign="middle">
-		    <table width="180" border="0" cellpadding="2" cellspacing="0">
+		    <table width="360" border="0" cellpadding="2" cellspacing="0">
               <tbody><tr>
                 
                 <td valign="middle" class="data1" style="text-align: center; border: none;">
@@ -480,7 +498,7 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
               </tr>
                <tr>
                 <td colspan="2" class="data1" align="center" style="text-align:center">
-				  <span class="ajax" id="ajaxbeaufortnum" lastobs="0" style="">%currbftspeed%</span> Bft - <i>
+				  <span class="ajax" id="ajaxbeaufortnum" lastobs="0" style="">%currbftspeed%</span><i>
 				  <span class="ajax" id="ajaxbeaufort" lastobs="Calm" style="">%bftspeedtextcurr%</span></i>
 				</td>
               </tr>
@@ -494,7 +512,7 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
                                           <tr>
                 <td colspan="2" class="data1" align="center">
 				  Gust Month: %monthtodatemaxgust%  mph 
-                  				  October 1 
+                  				  %mrecordhighgustmonth%/%mrecordhighgustday% 
                   				</td>
               </tr>
                           </tbody></table>
@@ -557,7 +575,10 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
           <td class="datahead">Almanac</td>
           <td class="datahead">Moon</td>
         </tr>
-        <tr align="center" valign="middle">
+        <tr align="center" valign="middle" style="
+    background-color: darkblue;
+    font-family: Interstate;
+">
           <td valign="middle"><table width="180" border="0" cellpadding="2" cellspacing="0">
               <tbody><tr>
                 <td class="data1">Humidity:</td>
@@ -624,22 +645,51 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
                   Illuminated				</td>
               </tr>
             </tbody></table>
-		  </td>
+    </td>
+		  
         </tr>
-<!-- get-UV-forecast-inc.php V1.09 - 12-Feb-2021 -->
-<!-- UV forecast courtesy of and Copyright &copy; KNMI/ESA (http://www.temis.nl/). Used with permission. -->
-<!-- UV data load from from cache ./cache/uv-forecast.txt -->
-<!-- Date='12-Oct-2023', UV='5.4' DOW='Thursday' YMD='20231012' -->
-<!-- Date='13-Oct-2023', UV='4.9' DOW='Friday' YMD='20231013' -->
-<!-- Date='14-Oct-2023', UV='5.1' DOW='Saturday' YMD='20231014' -->
-<!-- Date='15-Oct-2023', UV='4.8' DOW='Sunday' YMD='20231015' -->
-<!-- Date='16-Oct-2023', UV='4.9' DOW='Monday' YMD='20231016' -->
-<!-- Date='17-Oct-2023', UV='5.2' DOW='Tuesday' YMD='20231017' -->
+
+
+
+
+
+
+
+
+
         
         
      </tbody></table>
-<table width="1120" border="0" cellpadding="3" cellspacing="3" style="
-    padding-right: 272px;
+
+
+		    <td class="datahead" style="
+    width: 235px;
+    height: 23px;
+">Snowfall (T usually means trace</td><tbody style="
+"></tbody>
+		  <table width="250" border="0" cellpadding="2" cellspacing="0">
+              <tbody><tr style="
+    width: 105px;
+"></tr>
+</tbody><tbody><tr>
+                <td class="data1">Snowfall Today:</td>
+                <td style="text-align: center;" class="data1">%snowtodayin.%</td>
+              </tr>
+              <tr>
+                <td class="data1">%monthname% Snowfall</td>
+                <td style="text-align: right;" class="data1">%snowmonthin.%</td>
+              </tr>
+              <!--   moonrise='5:10 am' before moonset='5:26 pm' today -->
+              <tr>
+                <td class="data1">This Season:</td>
+                <td style="text-align: right;" class="data1">%snowseasonin.%</td>
+              </tr>
+              <tr>
+                <td class="data1">Snow Days in %monthname%</td>
+                <td style="text-align: right;" class="data1">%snowdaysthismonth%</td>
+              </tr>
+                         </tbody></table><table width="250" border="0" cellpadding="3" cellspacing="3" style="
+    padding-right: 0;
 ">
    <tbody><tr>
      <td style="text-align: left" class="datahead">&nbsp;NWS Weather Forecast&nbsp; -  Outlook:&nbsp;Overnight &amp; Thursday</td>
