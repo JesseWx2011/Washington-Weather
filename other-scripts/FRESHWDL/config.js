@@ -20,10 +20,10 @@ var clientRawName = "https://www.halethorpeweather.com/clientraw.txt", //The nam
     },
     gaugeSettings = { //Gauges: apparent temperature barometer windChill graphHandlerBarometer graphHandlerRainfall graphHandlerTemperature graphHandlerWindSpeed humidity moonSun solar status rainfallTitle rainfallDay rainfallMonth rainfallYear UV windDirection windSpeed graphSettings
         solar: {
-            enabled: false
+            enabled: true
         },
         UV: {
-            enabled: false
+            enabled: true
         },
         windChill: {
             mode: "windchill", //The default mode, either "heatIndex" or "windchill" (note: lowercase c)
@@ -33,9 +33,9 @@ var clientRawName = "https://www.halethorpeweather.com/clientraw.txt", //The nam
     graphSettings = {
         barometer: {enabled: true},
         humidity: {enabled: true},
-        solar: {enabled: false},
+        solar: {enabled: true},
         temp: {enabled: true},
-        uv: {enabled: false},
+        uv: {enabled: true},
         windDir: {enabled: true},
         windSpeed: {enabled: true},
         rainfall: {enabled: true}
