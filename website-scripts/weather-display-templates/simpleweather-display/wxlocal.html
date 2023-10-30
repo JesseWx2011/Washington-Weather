@@ -1,0 +1,324 @@
+<html lang="en" style="height: 100%;"><head>
+  <meta charset="UTF-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Personal Weather Station">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <!-- link rel="manifest" href="css/manifest.json" -->
+  <link rel="icon" href="img/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <title>Halethorpe Weather-Watch </title>  
+  <style>
+        *, html 
+             {  box-sizing: border-box;       
+                text-align: center; 
+                font-family: poppins,sans-serif;}       
+        body {  margin: 0 auto; 
+                padding: 0;    
+                font-size: 14px;  
+                line-height: 1.2;}                               
+        div  {  display: block;}
+        strongnumbers
+             {  font-weight:600}
+        .SMPL_weather_container 
+              { display: flex;  overflow: hidden;  
+                justify-content: center; flex-wrap: wrap; flex-direction: row; align-items: flex-start;} 
+        .SMPL_weather_container > div
+              {  flex-grow: 1; flex-shrink: 1; flex-basis: auto;}
+        .SMPL_weather_item
+              { position: relative; display: block;
+                background-color: #D4D7D9; border-radius: 12px; margin: 2px;
+                width: 330px; min-width: 280px; float: left;
+                height: 136px; }
+        @media screen and (max-width: 639px) 
+             {  .SMPL_weather_item 
+                     {  margin: 2px auto 0; float: none;  width:  100%;}   
+                }
+        @media screen and (min-width: 640px)  
+             {  .SMPL_weather_container 
+                     {  width: 100%;} 
+                }
+        @media screen and (min-width: 956px)  
+             {  .SMPL_weather_container 
+                     {  width: 100%; max-width: 1030px; } 
+                }
+        .SMPL_module_title 
+              { font-size: 24px; font-weight: bold; opacity: 1; 
+                border: none; border-top-left-radius: 12px;  border-top-right-radius: 12px;}
+        .SMPL_module_content 
+              { font-size: 80px; position: relative; top: -4px;  } 
+        .SMPL_module_low 
+              { font-size: 24px; position: relative; top: -14px; left: 4px;  float: left;}            
+        .SMPL_module_high 
+              { font-size: 24px; position: relative; top: -14px; right: 4px; float: right;}
+        .my_color    { background-color: rgba(239,127, 61, 0.6); color: white;} 	
+        .large       { font-size: 26px;}
+        .xlarge      { font-size: 46px;}
+        .narrow      { width: 100px;}
+        .low_item    { height: 165px;}
+        .xlow_item   { height: 110px;}
+
+        .smpl        { background-color: black; color: #AAA;} 
+  </style>        
+  <script>
+    var ajaxIDs=[];
+    ajaxIDs[0] = "temp";
+    ajaxIDs[1] = "temp_low";
+    ajaxIDs[2] = "temp_high";
+    ajaxIDs[3] = "barometer";
+    ajaxIDs[4] = "barometer_min";
+    ajaxIDs[5] = "barometer_max";
+    ajaxIDs[6] = "humidity";
+    ajaxIDs[7] = "humidity_low";
+    ajaxIDs[8] = "humidity_high";
+    ajaxIDs[9] = "wind_speed";
+    ajaxIDs[10] = "wind_speed_max";
+    ajaxIDs[11] = "wind_gust_speed";
+    ajaxIDs[12] = "wind_gust_speed_max";
+    ajaxIDs[13] = "wind_compass";
+    ajaxIDs[14] = "wind_direction";
+    ajaxIDs[15] = "rain_today";
+    ajaxIDs[16] = "rain_month";
+    ajaxIDs[17] = "rain_year";
+    ajaxIDs[18] = "temp_indoor";
+    ajaxIDs[19] = "humidity_indoor";
+    ajaxIDs[20] = "uv";
+    ajaxIDs[21] = "solar";
+    ajaxIDs[22] = "lux";
+    ajaxIDs[23] = "extra_tmp3";
+    ajaxIDs[24] = "extra_tmp2";
+    ajaxIDs[25] = "extra_tmp1";
+    var wsUrl       = "_data.php?ajax&nosky";   
+    var reloadTime  = 30;  
+  </script>
+</head>
+<body class="dark" style="background-color: transparent; height: 100%; width: 100%;">
+<div class="SMPL_weather_container" style="margin: 0 auto;"><!-- header container -->
+    <div class="SMPL_weather_item my_color large" style="width: 100%; margin: 2px 6px; padding: 0px; float: none; height: 40px; text-align: center;">
+        <span style="font-size: 32px; position: relative; top: 2px;">A Simple Title by Yoshi</span>
+        <form method="get" name="lang_select" action="#" style="padding: 0px; margin: 0px; color: white; background: transparent; position: absolute; top: 0px; left: 10px;">
+            <select id="lang" name="lang" style="color: white; font-weight: 400; background: transparent; border: none; position: relative; top: 0px; " onchange="this.form.submit();">
+                <option value="en-uk" selected="selected">English (United Kingdom)</option>
+                <option value="ct-ct">Catalan (Catalonia)</option>
+                <option value="da-dk">Danish (Denmark)</option>
+                <option value="de-dl">German (Germany)</option>
+                <option value="es-es">Spanish (Spain)</option>
+                <option value="fr-fr">French (France)</option>
+                <option value="el-gr">Greece</option>
+                <option value="it-it">Italian (Italy)</option>
+                <option value="nl-nl">Dutch (Netherlands)</option>
+                <option value="nn-no">Norwegian (Norway)</option>
+                <option value="sr-rs">Serbian (Serbia)</option>
+                <option value="pt">Portugese(Portugal)</option>
+                <option value="pt-br">Portuguese (Brazil)</option>
+                <option value="pl">Polish (Poland)</option>
+                <option value="hr">Croatian (Croatia)</option>
+                <option value="se">Swedish (Sweden)</option>
+                <option value="fi">Finnish (Finland)</option>
+                <option value="en-us">English</option>
+            </select>
+        </form>
+        <span id="ajaxcounter" style="font-size: 12px; position: absolute; top: 12px; right: 10px;">-289</span>
+        <span style="font-size: 12px; position: absolute; top: 12px; right: 30px">Refresh: </span>
+    </div>
+</div><!-- eo header container -->
+<div class="SMPL_weather_container" style="margin: 0 auto;"><!-- enclosing  blocks container -->
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Temperature °     F</div>
+        <div class="SMPL_module_content"><span class="ajax" id="temp">%temp%</span></div>
+        <div class="SMPL_module_low"><span class="ajax" id="temp_low">%mintemp%</span>▼</div>
+        <div class="SMPL_module_high">▲<span class="ajax" id="temp_high">%maxtemp%</span></div>
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Pressure       inHg</div>
+        <div class="SMPL_module_content"><span class="ajax" id="barometer">%baro%</span></div>
+        <div class="SMPL_module_low"><span class="ajax" id="barometer_min">%lowbaro%</span>▼</div>
+        <div class="SMPL_module_high">▲<span class="ajax" id="barometer_max">%highbaro%</span></div>
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Humidity %     </div>
+        <div class="SMPL_module_content"><span class="ajax" id="humidity">%hum%</span></div>
+        <div class="SMPL_module_low"><span class="ajax" id="humidity_low">%highhum%</span>▼</div>
+        <div class="SMPL_module_high">▲<span class="ajax" id="humidity_high">%highhum%</span></div>
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Wind       mph</div>
+        <div class="SMPL_module_content"><span class="ajax" id="wind_speed">%avgspd%</span></div>
+        <div class="SMPL_module_low"></div>
+        
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Gust       mph</div>
+        <div class="SMPL_module_content"><span class="ajax" id="wind_gust_speed">%gstspd%</span></div>
+        <div class="SMPL_module_low"></div>
+        <div class="SMPL_module_high">▲<span class="ajax" id="wind_gust_speed_max">11.5</span></div>
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Compass       </div>
+        <div class="SMPL_module_content"><span class="ajax" id="wind_compass">%dirlabel%</span></div>
+        <div class="SMPL_module_low"><span class="ajax" id="wind_direction">287</span>°</div>
+        <div class="SMPL_module_high"></div>
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Rain       in</div>
+        <div class="SMPL_module_content"><span class="ajax" id="rain_today">%dayrn%</span></div>
+        <div class="SMPL_module_low"><span class="ajax" id="rain_month">%monthrn%</span> <span style="font-size: 12px;">Month</span></div>
+        <div class="SMPL_module_high"><span style="font-size: 12px;">Year</span> <span class="ajax" id="rain_year">%yearrn%</span></div>
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">Indoor °     F</div>
+        <div class="SMPL_module_content"><span class="ajax" id="temp_indoor">%indoortemp%</span></div>
+        <div class="SMPL_module_low"></div>
+        <div class="SMPL_module_high"><span style="font-size: 12px;">Humidity</span> <span class="ajax" id="humidity_indoor">55</span></div>
+    </div>
+    <div class="SMPL_weather_item my_color">
+        <div class="SMPL_module_title my_color">UV-Index       </div>
+        <div class="SMPL_module_content"><span class="ajax" id="uv">%VPuv%</span></div>
+        <div class="SMPL_module_low"><span class="ajax" id="solar">%VPsolar%</span> <span style="font-size: 12px;">Solar</span></div>
+        
+    </div>
+    
+    
+    
+    
+<br><br><br><span class="ajax" id="ajaxindicator"></span>
+</div><!-- enclosing  blocks container  -->
+<script>
+// Load changing weathervalues into fields on screen, colorize changed values for some seconds
+// Total rewrite from WD-tags as used in Saratoga / Leuven templates
+// Version 2021-08-24  
+// -- begin settings --------------------------------------------------------------------------
+        var flashcolor 	        = "#00CC00";	// color to flash for changed observations
+        var flashtime  	        = 3000; 	// miliseconds to keep flash color on (5000 = 5 seconds);
+        var wsRequest 	        = false;	// to communicate with server to get the field-data
+        var errorEval;
+        var counterSecs         = reloadTime;
+        var ajaxVars            = new Array();  
+//
+// find the handler for AJAX based on availability of the wsRequest object
+//
+        function ws_ajax_request () {
+                wsRequest = false;
+                try { wsRequest = new XMLHttpRequest()}          // non IE browser (or IE8 native)  
+                catch(e1) 
+                     {  wsRequest = false; 
+                        alert("Sorry.. AJAX updates are not available for your browser.") ;} // eo catxh e1
+                return wsRequest;
+        } // eof ws_ajax_request
+//
+// wsRequest the data form the server
+//
+        function load_data(wsUrl) {                     
+                if (wsRequest)   // is there a usable object
+                     {  wsRequest.open("get", wsUrl );   
+                        wsRequest.onreadystatechange = process_data;    // which function handles the returned data:
+                        wsRequest.send(null);}                          // send the wsRequest to the server:
+                else {  alert("Sorry.. AJAX updates are not available for your browser.");}
+        }  // eof load_data: wsRequest the data form the server
+//
+//  when data is received 
+//
+        function process_data() {       // wait antoher second before starting to use the data
+                if ( (wsRequest.readyState == 4) && (wsRequest.status == 200) ) { 
+                        setTimeout("execute_data()", 1000);  }
+        }
+//  now we can use the latest data
+        function execute_data() {               // Everything ok   
+                eval (wsRequest.responseText);  // alert ("252"+wsRequest.responseText);  // alert ("242 " + ajaxVars["ajaxdate"]);   // eval the string 
+                if  (undefined == ajaxVars["ajaxdate"]) {
+                        var indicator   = "Error in data received, reload page to start";
+                        errorEval = true; }
+// use loop to process all ajax fields  2021-08-2
+                else {  var indicator   = "";
+                        var numelements = ajaxIDs.length;               // alert ("number of objects ="+numelements);
+                        for (var index=0; index!=numelements; index++) {
+                                var name        = ajaxIDs[index];       //alert ("name ="+name+" value="+ajaxVars[name]);
+                                var element     = document.getElementById(name);
+                                if (! element ) { continue; }
+                                var oldValue    = element.innerHTML;
+                                var lastobs     = element.getAttribute("lastobs");
+                                var newValue    = ajaxVars[name];
+                                if (!newValue)  {continue;}
+                                element.innerHTML= newValue;
+                                newValue        = element.innerHTML;
+                                if (oldValue != newValue)
+// store away the new current value in both the doc and the span as lastobs="value"
+                                     {  element.setAttribute("lastobs",oldValue);
+                                        element.style.color     = flashcolor;}
+                                }
+                        } //EO use loop to process all ajax fields  2021-08-2
+                var element             = document.getElementById("ajaxindicator");
+                element.innerHTML       = indicator;
+                setTimeout("reset_ajax_color('')",flashtime); // change text back to default color 
+                ws_ajax_request ();				// load again after wait of so many milliseconds
+                setTimeout("load_data(wsUrl)", reloadTime*1000); 
+                counterSecs     = reloadTime;
+        }   	// eof  execute_data: put every piece of data in the right place
+//
+// reset all the <span class="ajax"...> styles to have no color override
+//
+        function reset_ajax_color( usecolor ) {
+                var numelements = ajaxIDs.length;               // alert ("number of objects ="+numelements);
+                for (var index=0;index!=numelements;index++) {
+                        var name = ajaxIDs[index];           // alert ("element ="+element+" value="+ajaxVars[element]);
+                        var element     = document.getElementById(name);
+                        if (! element ) { continue; }
+                        element.style.color=usecolor;}
+                }   // eof reset_ajax_color: reset all the <span class="ajax"...> styles to have no color override
+//
+// Mike Challis counter function (adapted by Ken True)
+        function ajax_countup() {
+                var element = document.getElementById("ajaxcounter");
+                if (element) {
+                        element.innerHTML = counterSecs;
+                        counterSecs--;}
+        }  				 // count time to new update 
+//
+// code below will be excuted when html is already loaded
+//
+window.setInterval("ajax_countup()", 1000);  // run the counter for seconds since update
+//
+wsRequest = ws_ajax_request ();	  // load for the first time after wait of so many milliseconds
+setTimeout("load_data(wsUrl)", counterSecs*1000);	 //	
+//
+</script>
+<!-- simple.php (97) version =>simple.php|09|2023-02-15|
+simple.php (102) include_once =>_data.php
+_data.php (24) version =>_data.php|01|2023-02-15|
+_data.php (42) include_once =>PWS_livedata.php
+PWS_livedata.php (22) version =>PWS_livedata.php|09|2023-09-09|
+PWS_livedata.php (25) include_once =>PWS_settings.php
+PWS_settings.php (28) version =>PWS_settings.php|01|2022-12-23|
+PWS_settings.php (32) include =>/home/halethor/public_html/pwsWD/_my_settings/settings.php
+PWS_settings.php (176) $defaultlanguage=en-uk $used_lang =en-uk $locale_wu=en-GB $lang_locale=en-gb $lang_file=languages/lang_en.txt
+PWS_settings.php (284) $units_used =us $windunit=mph $tempunit=F $rainunit=in $pressureunit=inHg $distanceunit=mi $wu_unit=e
+PWS_livedata.php (29) include_once =>PWS_shared.php
+PWS_shared.php (21) version =>PWS_shared.php|01|2022-11-22|
+PWS_livedata.php (39) $itsday =1
+PWS_livedata.php (2070) include_once =>PWS_extra_data.php
+PWS_extra_data.php (27) version =>PWS_extra_data.php|01|2023-07-14|
+PWS_extra_data.php (30) include_once =>PWS_settings.php
+PWS_extra_data.php (34) include_once =>PWS_shared.php
+PWS_extra_data.php (59) processing: |snow_today|snow|0.00|! # in
+PWS_extra_data.php (59) processing: |snow_yday|snow|0|! # Yesterdays' snow
+PWS_extra_data.php (59) processing: |snow_season|snow|0.000|! # in
+PWS_extra_data.php (59) processing: |snow_depth|snow|0.0|!  # in.
+PWS_extra_data.php (59) processing: |tub_current|temp|81.7|! #
+PWS_extra_data.php (59) processing: |tub_high|temp|82.1|! #
+PWS_extra_data.php (59) processing: |tub_low|temp|77.6|! #
+PWS_extra_data.php (59) processing: |fromrain|uom|in|!
+PWS_extra_data.php (59) processing: |fromtemp|uom|F|!
+PWS_extra_data.php (59) processing: |extra_tmp1|temp|81.7|!   #hot tub
+PWS_extra_data.php (59) processing: |extra_tmp2|temp|64.1|!   #soil
+PWS_extra_data.php (59) processing: |extra_tmp3|temp|77.8|!   #grass
+PWS_extra_data.php (59) processing: |extra_tmp4|temp|96.1|!   #cloud
+PWS_extra_data.php (59) processing: |extra_tmp5|temp|120.3|!   #AC power
+PWS_extra_data.php (59) processing: |lightning|light|9|!
+PWS_extra_data.php (59) processing: |lightningtime|light|--|!
+PWS_extra_data.php (59) processing: |lightningenergy|light|--|!
+PWS_extra_data.php (59) processing: |lightningkm|light|--|!   // leave as last of the lightning values
+ -->
+
+
+</body></html>
