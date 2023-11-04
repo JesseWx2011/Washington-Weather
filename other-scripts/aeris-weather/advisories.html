@@ -1,0 +1,64 @@
+WeatherBlox Wizard
+All WizardsDocumentationSupport
+Select WeatherBlox Type
+Select View Type
+Setup Options
+Get Code
+Get Code
+Below is the code snippet you'll need to insert this WeatherBlox element into your page.
+
+Use your Xweather account
+Log in to your existing Xweather account to use your access keys in the output. If you don't have an Xweather account yet, sign up for our free Developer account.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WeatherBlox</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <link rel="stylesheet" href="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.css">
+    <script defer src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
+
+</head>
+<body>
+
+    <!--// target DOM element where WeatherBlox will be rendered //-->
+    <div id="wxblox" class="aeris-wrapper"></div>
+
+    <script>
+    window.onload = () => {
+        // set Aeris account access keys
+        const aeris = new AerisWeather('DZLMGEFxCvfbQRG7aSN3c', 'N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt');
+
+        aeris.on('ready', () => {
+
+            // create desired WeatherBlox instance
+            const view = new aeris.wxblox.layouts.local.Advisories('#wxblox', {
+                advisories: {
+                    fullDetails: true,
+                    showModal: true
+                }
+            });
+
+            // load data and render the view for a specific location
+            view.load({
+                p: "washington,dc"
+            });
+            
+        });
+    };
+    </script>
+
+</body>
+</html>
+Washington, DC, US
+38.906639, -77.016577
+
+No active advisories for this location.
+AdvisoriesRadar
+Play
+11/04/2023 01:29 PM
+Powered by AerisWeather
+
+© 2023 Vaisala Xweather. Privacy + Terms
