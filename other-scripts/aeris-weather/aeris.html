@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WeatherBlox</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <link rel="stylesheet" href="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.css">
+    <script defer src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.js"></script>
+
+</head>
+<body>
+
+    <!--// target DOM element where WeatherBlox will be rendered //-->
+    <div id="wxblox" class="aeris-wrapper"></div>
+
+    <script>
+    window.onload = () => {
+        // set Aeris account access keys
+        const aeris = new AerisWeather('DZLMGEFxCvfbQRG7aSN3c', 'N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt');
+
+        aeris.on('ready', () => {
+
+            // create desired WeatherBlox instance
+            const view = new aeris.wxblox.layouts.local.Main('#wxblox', {
+                obs: {
+                    advisories: {
+                        enabled: true
+                    },
+                    threats: {
+                        enabled: true
+                    }
+                },
+                forecast: {
+                    type: "detailed"
+                },
+                maps: {
+                    animation: {
+                        enabled: true,
+                        autoplay: false,
+                        alwaysShowPast: false,
+                        alwaysShowFuture: false,
+                        from: -7200,
+                        to: 0,
+                        duration: 2,
+                        endDelay: 1,
+                        intervals: 10
+                    },
+                    controls: {
+                        layers: [{
+                                value: "radar",
+                                title: "Radar"
+                            },{
+                                value: "satellite",
+                                title: "Satellite"
+                            },{
+                                value: "alerts",
+                                title: "Advisories"
+                            },{
+                                value: "temperatures,clip-us-flat",
+                                title: "Temps"
+                            }],
+                        regions: [{
+                                zoom: 7,
+                                title: "Local"
+                            },{
+                                zoom: 5,
+                                title: "Regional"
+                            }]
+                    }
+                }
+            });
+
+            // load data and render the view for a specific location
+            view.load({
+                p: "washington, dc"
+            });
+            
+        });
+    };
+    </script>
+
+</body>
+</html>
