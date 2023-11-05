@@ -12,7 +12,7 @@
 //
 // --------- begom settomgs ---------------------------------------------------------------
 var ajaxrotatedelay=4000; // Rotate display every 4 secs (= 4000 ms)
-var showUV = false ;       // set to false if you don't have a Davis VP UV sensor
+var showUV = true ;       // set to false if you don't have a Davis VP UV sensor
 // --------- emd settomgs -----------------------------------------------------------------
 //
 // you shouldn't need to change things below this line

@@ -341,7 +341,7 @@ var wxStation =   // Your Weather Station status
    };
 
 var update = // for ajax update interval
-   {reloadtime: 5000   // fetch clientraw.txt file every 5 seconds (1000 ms = 1 second )
+   {reloadtime: 10000   // fetch clientraw.txt file every 5 seconds (1000 ms = 1 second )
    ,maxupdates: 0     // Maximum number of updates/fetches allowed (set to zero for unlimited)
                        // maxupdates * reloadtime / 1000 = (number of seconds to update)
                        // i.e. 36 x 5000 / 1000 = 180 seconds (3 minutes)
@@ -351,12 +351,12 @@ var update = // for ajax update interval
    };
 
 var flash = // for update indicator
-   {color: '#FF0000'   // color to flash for changed observations (RGB) (def #00CC00 = green)
+   {color: '#00CC00'   // color to flash for changed observations (RGB) (def #00CC00 = green)
    ,red  : '#FF0000'   // color to flash red for warnings/alarms  (RGB) (def #FF0000 = red)
    ,time : 3000        // milliseconds to keep flash color on (2000 = 2 seconds);
    };
 
-var utc_offset = -5;	   // Set your local TZ offset from UTC Time ('America/Chicago' = -6, 'America/Los Angeles = -8, etc.)
+var utc_offset = -6;	   // Set your local TZ offset from UTC Time ('America/Chicago' = -6, 'America/Los Angeles = -8, etc.)
 
 //==============================================================================
 // STATIC IMAGES                                                               .
@@ -375,8 +375,8 @@ var imgDir = './ajax-images/'; // with trailing slash
 // e.g. graphic name: "./ajax-images/bkn.gif"
 // .... grab the animated icons for set 2 here: http://www.bashewa.com/downloads/bws-icons-current.zip
 var wxIcon =
-   {src    : imgDir+"{PIC}.gif" // where {PIC} will = picname from function specified in wxIcon.useName below
-   ,width  : 84 ,height: 84 ,hspace: 0 ,vspace: 0 ,border: 0
+   {src    : imgDir+"{PIC}.jpg" // where {PIC} will = picname from function specified in wxIcon.useName below
+   ,width  : 74 ,height: 74 ,hspace: 0 ,vspace: 0 ,border: 0
    ,style  : ""  // eg. "border: 2px solid silver"
    ,align  : ""  // [ left | right | top | bottom | middle | texttop | absbottom | absmiddle ]
    ,useTag : "ajaxconditionicon2" // [ ajaxconditionicon | ajaxconditionicon2 ] ... ajax tagname to use
@@ -392,8 +392,8 @@ var wxIcon =
 // e.g. graphic name: "./ajax-images/wr-SSE.gif"  or  "./ajax-images/wr-nl-SSE.gif"
 // .... grab the wind rose icons here: http://www.bashewa.com/downloads/bws-icons-wind.zip
 var wrImg =
-   {src   : imgDir+"wr-{LANG}{DIR}.gif"  // where {DIR} will = wind dir (e.g. NNW), {LANG} = wrImg.lang
-   ,width : 84 ,height: 84 ,hspace: 0 ,vspace: 0 ,border: 0
+   {src   : imgDir+"wr-{LANG}{DIR}.png"  // where {DIR} will = wind dir (e.g. NNW), {LANG} = wrImg.lang
+   ,width : 75 ,height: 75 ,hspace: 0 ,vspace: 0 ,border: 0
    ,style : ""
    ,align : "" // [ left | right | top | bottom | middle | texttop | absbottom | absmiddle ]
    ,lang  : ""     // with trailing dash (e.g. "nl-" will result in graphic name: "./ajax-images/wr-nl-SSE.gif")
@@ -458,7 +458,7 @@ var moonImg =
 // .... grab the FWI icons here: http://www.bashewa.com/downloads/bws-icons-fire.zip
 var fireImg =
    {src   : imgDir+"FWIFire{IMGNR}.gif" // where {IMGNR} will = fire index (0=very low, 1=low, 2=moderate, 3=high, 4=extreme) from fireImg.imgNrs below
-   ,width : 84 ,height: 104 ,hspace: 0 ,vspace: 0 ,border: 0
+   ,width : 74 ,height: 74 ,hspace: 0 ,vspace: 0 ,border: 0
    ,style : ""
    ,align : ""
    ,imgNrs: // we all have different numbering systems for our FWI icons it seems ... specify the 6 icon numbers below
@@ -472,8 +472,8 @@ var fireImg =
 // e.g. graphic name: "./ajax-images/fire/fire3.gif"
 // .... grab the FWI icons here: http://www.bashewa.com/downloads/bws-icons-fire.zip
 var fireImg2 =
-   {src   : imgDir+"Fire{IMGNR}.gif" // where {IMGNR} will = fire index (0=very low, 1=low, 2=moderate, 3=high, 4=extreme) from fireImg.imgNrs below
-   ,width : 84 ,height: 104 ,hspace: 0 ,vspace: 0 ,border: 0
+   {src   : imgDir+"Fire{IMGNR}.png" // where {IMGNR} will = fire index (0=very low, 1=low, 2=moderate, 3=high, 4=extreme) from fireImg.imgNrs below
+   ,width : 74 ,height: 74 ,hspace: 0 ,vspace: 0 ,border: 0
    ,style : ""
    ,align : ""
    ,imgNrs: // we all have different numbering systems for our CBI icons it seems ... specify the 5 icon numbers below
@@ -541,7 +541,7 @@ var cloudImg =
    ,width : 90 ,height: 200 ,hspace: 0 ,vspace: 0 ,border: 0
    ,style : ""
    ,align : ""
-   ,stationAlt: 334.9 // your station altitude in meters for cloud height graphic if you want ASL (meters = ft / 3.2808399)
+   ,stationAlt: 54 // your station altitude in meters for cloud height graphic if you want ASL (meters = ft / 3.2808399)
    ,useTag: "ajaxcloudheightimg"
    };
 
@@ -563,7 +563,7 @@ var cloudImg =
 var imperialUOM =
    {Temp: '&deg;F' // [ &dec;C | &dec;F ] ......................... Temp
    ,Wind: 'mph'    // [ kts | mph | kph  | m/s  ] ................. Wind
-   ,Baro: 'mb'   // [ hPa | mb  | inHg | mmHg ] ................. Baro
+   ,Baro: 'inHg'   // [ hPa | mb  | inHg | mmHg ] ................. Baro
    ,Rain: 'in'     // [ mm  | in  ] ............................... Rain
    ,Soil: 'in'     // [ cm  | in  ] ............................... Soil Sensor Depth
    ,Moist:'cb'	   // [ kp  | cb  ] ............................... Soil Moisture
@@ -626,8 +626,8 @@ var langUVWords = new Array (
     "None", "Low", "Medium", "High", "Very&nbsp;High", "Extreme", "Unknown" );
 
 var langBeaufort = new Array ( /* Beaufort 0 to 12 in array */
-    "Calm", "Light Air", "Light Breeze", "Gentle Breeze", "Moderate Breeze", "Fresh Breeze",
-    "Strong Breeze", "Near Gale", "Gale", "Strong Gale", "Storm", "Violent Storm", "Hurricane");
+    "Calm", "Light air", "Light breeze", "Gentle breeze", "Moderate breeze", "Fresh breeze",
+    "Strong breeze", "Near gale", "Gale", "Strong gale", "Storm", "Violent storm", "Hurricane");
 
 var langWindDir = new Array( /* used for alt and title tags on wind dir arrow and wind direction display */
     "N", "NNE", "NE", "ENE",
@@ -1011,7 +1011,7 @@ iconList = new Array(
    "bkn",          //  2 cloudy
    "sct",          //  3 cloudy2
    "nbkn",         //  4 cloudynight
-   "ovc",          //  5 dry
+   "sct",          //  5 dry
    "fg",           //  6 fog
    "hazy",         //  7 haze
    "ra",           //  8 heavyrain
@@ -1025,7 +1025,7 @@ iconList = new Array(
    "nsn",          // 16 nightsnow
    "ntsra",        // 17 nightthunder
    "ovc",          // 18 overcast
-   "sctpart",      // 19 partlycloudy
+   "bkn",          // 19 partlycloudy
    "ra",           // 20 rain
    "ra",           // 21 rain2
    "shra",         // 22 showers2
@@ -1407,29 +1407,26 @@ function ajax_getHeatColor(temp ,WindChill, Humidex) {
 var fg = bg = hw = "";
 var hcWord = langHeatWords[0];
 var val = { fg:'', bg:'', hw:'' };
-   if (temp > 32 && Humidex > 32.3) {
+   if (temp > 32 && Humidex > 29) {
       switch (true) {
-      case (Humidex   > 52.5): fg = "black"; bg = "#BA1928"; hw = langHeatWords[ 1]; break;
-      case (Humidex   > 47.5): fg = "black"; bg = "#E02538"; hw = langHeatWords[ 2]; break;
-      case (Humidex   > 41.5): fg = "black"; bg = "#E178A1"; hw = langHeatWords[ 3]; break;
-      case (Humidex   > 36.5): fg = "black"; bg = "#FF00E0"; hw = langHeatWords[ 4]; break;
-	  case (Humidex   > 32.3): fg = "black"; bg = "#CC6633"; hw = langHeatWords[ 5]; break;
+      case (Humidex   > 54): fg = "white"; bg = "#BA1928"; hw = langHeatWords[ 1]; break;
+      case (Humidex   > 45): fg = "white"; bg = "#E02538"; hw = langHeatWords[ 2]; break;
+      case (Humidex   > 39): fg = "black"; bg = "#E178A1"; hw = langHeatWords[ 4]; break;
+      case (Humidex   > 29): fg = "white"; bg = "#CC6633"; hw = langHeatWords[ 6]; break;
       }
    } else if (WindChill < 16 ) {
       switch (true) {
       case (WindChill <-28): fg = "black"; bg = "#91ACFF"; hw = langHeatWords[14]; break;
       case (WindChill <-18): fg = "black"; bg = "#91ACFF"; hw = langHeatWords[13]; break;
       case (WindChill < -9): fg = "white"; bg = "#806AF9"; hw = langHeatWords[12]; break;
-      case (WindChill < -1): fg = "black"; bg = "#3366FF"; hw = langHeatWords[11]; break;
-      case (WindChill <  8): fg = "black"; bg = "#6699FF"; hw = langHeatWords[10]; break;
-      case (WindChill < 16): fg = "black"; bg = "#C6EF8C"; hw = langHeatWords[ 9]; break;
+      case (WindChill < -1): fg = "white"; bg = "#3366FF"; hw = langHeatWords[11]; break;
+      case (WindChill <  8): fg = "white"; bg = "#6699FF"; hw = langHeatWords[10]; break;
+      case (WindChill < 16): fg = "black"; bg = "#89B2EA"; hw = langHeatWords[ 9]; break;
       }
-   }  else if (WindChill >= 16 && temp <= 35.0) {
+   }  else if (WindChill >= 16 && temp <= 32) {
       switch (true) {
-      case (temp      < 26): fg = "black"; bg = "#FFFF00"; hw = langHeatWords[ 8]; break;
-      case (temp      <=30.3): fg = "black"; bg = "#FA6B05"; hw = langHeatWords[ 7]; break;
-	  case (temp      <=33.3): fg = "black"; bg = "#FF0000"; hw = langHeatWords[ 6]; break;
-	  case (temp      <=35.0): fg = "black"; bg = "#CC6633"; hw = langHeatWords[ 5]; break;
+      case (temp      < 26): fg = "black"; bg = "#C6EF8C"; hw = langHeatWords[ 8]; break;
+      case (temp      <=32): fg = "black"; bg = "#CC9933"; hw = langHeatWords[ 7]; break;
       }
    }
    val = { fg:fg ,bg:bg ,hw:hw };
@@ -2018,8 +2015,8 @@ try {
 		  feelslike = clientraw[44]; //use WindChill
 		  feelslike1 = clientraw[44]; //use WindChill
 		} else if (temp >=27.0) {
-		  feelslike = clientraw[112]; //use Heat Index
-		  feelslike1 = clientraw[112]; //use Heat Index
+		  feelslike = clientraw[45]; //use Humidex
+		  feelslike1 = clientraw[45]; //use Humidex
 		} else {
 		  feelslike = temp;   // use temperature
 		  feelslike1 = temp;   // use temperature
