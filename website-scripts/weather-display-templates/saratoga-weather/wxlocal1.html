@@ -1,15 +1,20 @@
-<html xmlns="http://www.w3.org/1999/xhtml" style="
-    font-family: Intrerstate;
-"><head>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
     <!-- ##### start AJAX mods ##### -->
+    <script type="text/javascript" src="ajaxWDwx3.js"></script>
     <!-- AJAX updates by Ken True - http://saratoga-weather.org/wxtemplates/ -->
-        <script type="text/javascript"> var usingWeeWX = false; </script>
-    <meta name="description" content="Personal weather station.">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link rel="stylesheet" type="text/css" href="saratoga-blue.css" media="screen" title="screen">
-    <link rel="stylesheet" type="text/css" href="saratoga-blue2.css" media="print">
+    <script type="text/javascript" src="ajaxgizmo.js"></script>
+    <script type="text/javascript" src="language-en.js"></script>
+	<!-- language for AJAX script included -->
 
-    <title>USA Website with PHP &amp; AJAX - Home</title>
+    <meta name="description" content="madridiowaweather.com personal weather station.">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="weather-screen-blue-narrow.css" media="screen" title="screen">
+    <link rel="stylesheet" type="text/css" href="weather-print-php.css" media="print">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+	<meta name="keywords" content="Logia Weather Station in Washington DC, Suitland MD Weather, Virginia Weather, Maryland Weather, Mid-Atlantic Weather, Weather Forecast for Maryland, Weather Forecast for Virginia, Weather Forecast for Washington DC, Washington DC Weather, Suitland MD Weather, Arlington VA Weather, Crystal City VA Weather, Ashburn VA Weather, Rockville MD Weather, Weather Forecast for Washington DC, Weather Forecast for Arlington VA, District of Columbia Weather">
+    <title>The Dinos Reportr</title>
 <!-- begin flyout-menu.php CSS definition style='blue' -->
 <style type="text/css">
 /* ================================================================
@@ -25,7 +30,7 @@ template set.
 =================================================================== */
 .flyoutmenu {
 font-size:90%;
-}
+} 
 
 /* remove all the bullets, borders and padding from the default list styling */
 .flyoutmenu ul {
@@ -129,74 +134,100 @@ visibility:visible;
 <!-- end of flyout-menu.php CSS definition -->
 <!-- World-ML template from http://saratoga-weather.org/wxtemplates/ -->
 <!-- end of top -->
+
+<meta name="description" content="madridiowaweather.com personal weather station.">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta name="keywords" content="Madrid Iowa Weather, Willard weather page, Personal Weather Station, Davis Weather, Davis Vantage Pro, Vantage Pro, Madrid Weather, Iowa solar radiation, Iowa UV radiation, Iowa Weather data, Weatherlink, Virtual Weather Station, Boone county weather, Boone county severe weather, Iowa tornado, Iowa hail, tornado, hail, severe, thunderstrom, severe thunderstorm, severe weather warnings, Iowa severe weather warnings, central iowa weather, Central Iowa severe weather, Boone county warnings, Iowa winter weather, Iowa road conditions, winter storm, Iowa winter storm, doppler radar, Iowa radar, Iowa doppler radar, central Iowa radar, live weather, real time, real time Madrid Iowa weather, NOAA, webcam, Madrid webcam, fishing, saylorville, saylorville weather, madird bike trail, bike trail, Ankeny to Woodward Recreation Trail, High Trestle Trail Bridge">
+
+<style type="text/css">
+.auto-style1 {
+	font-size: large;
+}
+.auto-style2 {
+	font-size: large;
+	font-weight: bold;
+}
+.auto-style3 {
+	text-align: center;
+}
+.auto-style5 {
+	font-size: x-large;
+	font-family: "Times New Roman", serif;
+	color: #FF0000;
+}
+</style>
 </head>
-<body style="
-    font-family: Interstate;
-">
-<!-- nws-alerts noCron=true .. running nws-alerts.php inline -->
-<!-- nws-alerts.php - V1.44 - 13-May-2023 -->
-<!-- 4 unique Zone entries found. Zones='VAZ098,MDZ013,DCZ001,MDC512' -->
-<!-- cache age 28 seconds - no fetch needed -->
-<!-- Cron job not used -->
-<!-- Total process time: 0.0002 seconds -->
-<div id="page" style="
-    font-family: Interstate;
-"><!-- page wrapper -->
+
+<body>
+<div id="page"><!-- page wrapper -->
 <!-- header -->
-    <div id="header" style="
-    background-color: #20d062;
-    width: 1271px;
-">
-      <h1 class="headerTitle">
-        <a href="index.php" title="Browse to homepage">The Dinos Report</a>
+
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+} 
+</style>
+
+
+    <div id="header">
+      <h1 class="auto-style1">
+        <a href="wx1.html" title="Browse to homepage">
+		<img src="https://static.wixstatic.com/media/8942fb_f590a38c0e5c450ca1bdcac9c42fc73d~mv2.png/v1/fill/w_544,h_99,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/8942fb_f590a38c0e5c450ca1bdcac9c42fc73d~mv2.png" alt="thedinosreport.org" border="none" width="775"></a>
       </h1>	
 	  <div class="headerTemp">
 	    <span class="doNotPrint">
- 		  <span class="ajax" id="ajaxbigtemp" lastobs="49&amp;deg;F" style="">%temp%</span>
+ 		  <span class="ajax" id="ajaxbigtemp">%temp%</span>
 		</span>
  	  </div>
 
-      <div class="subHeader">Hillcrest Heights, Maryland, USA</div>
+      <div class="subHeader">Washington, District of Columbia, USA</div>
       <div class="subHeaderRight">
 	  <!-- Lang='en' -->
-<!-- ajax-gizmo.php V1.15 - 27-Dec-2022 - Multilingual -->
+<!-- ajax-gizmo.php V1.14 - 17-Mar-2013 - Multilingual -->
 <div class="ajaxgizmo">
    <div class="doNotPrint">
 	  <!-- ##### start of AJAX gizmo ##### -->
-	    <noscript>[Enable JavaScript for live updates]&nbsp;</noscript>
-	    <span class="ajax" id="gizmoindicator" style="" lastobs="Updates paused - reload page to start">Updates paused - reload page to start</span>:&nbsp;
-		<span class="ajax" id="gizmodate" lastobs="10/12/2023" style="">%time%</span>&nbsp; 
-		<span class="ajax" id="gizmotime" lastobs="6:25:43am" style="">%time%</span>
+	    <noscript>[Enable JavaScript for live updates]   </noscript>
+	    <span class="ajax" id="gizmoindicator" style="">Updated</span>:   
+		<span class="ajax" id="gizmodate">%date%</span>    
+		<span class="ajax" id="gizmotime">%time%</span>
 		
-	  <br>&nbsp;<img src="./ajax-images/spacer.gif" height="14" width="1" alt=" ">
+	  <br>   <img src="./ajax-images/spacer.gif" height="14" width="1" alt=" ">
 		<span class="ajaxcontent0" style="display: none;">
-		  <span class="ajax" id="gizmocurrentcond" lastobs="Night time, Dry, Mostly cloudy" style="">Night time, Dry, Mostly cloudy</span>
+		  <span class="ajax" id="gizmocurrentcond">%weathercond%</span>
 		</span>
-		<span class="ajaxcontent1" style="display: inline;">Temperature: 
-			<span class="ajax" id="gizmotemp" lastobs="%temp%" style="">%temp%</span>
+		<span class="ajaxcontent1" style="display: none;">Temperature: 
+			<span class="ajax" id="gizmotemp">%temp%</span>
             
-	        &nbsp;
-			<span class="ajax" id="gizmotemprate" lastobs="%tempchangehour%" style="">%tempchangehour%</span>/hr		</span>
-		<span class="ajaxcontent2" style="display: none;">Humidity: 
-		  <span class="ajax" id="gizmohumidity" lastobs="%hum%" style="">%hum%</span>%&nbsp;		</span>
+	           
+			<span class="ajax" id="gizmotemprate">%temptrendnamehour% by %tempchangehour%</span></span>
+		<span class="ajaxcontent2" style="display: inline;">Humidity: 
+		  <span class="ajax" id="gizmohumidity">%hum%</span>%		</span>
 		<span class="ajaxcontent3" style="display: none;">Dew Point: 
-		  <span class="ajax" id="gizmodew" lastobs="%dew%" style="">%dew%</span>		</span>
+		  <span class="ajax" id="gizmodew">%dew%</span>		</span>
 		<span class="ajaxcontent4" style="display: none;">Wind: 
-	    	 
-			<span class="ajax" id="gizmowinddir" lastobs="%dirlabel%" style="">%dirlabel%</span>&nbsp; 
-			<span class="ajax" id="gizmowind" lastobs="%avgspd%" style="">%avgspd%</span>
+	    	<span class="ajax" id="gizmowindicon"></span> 
+			<span class="ajax" id="gizmowinddir">%dirlabel%</span>    
+			<span class="ajax" id="gizmowind">%avgspd%</span>
 		</span>
 		<span class="ajaxcontent5" style="display: none;">Gust: 
-  			<span class="ajax" id="gizmogust" lastobs="%gstspd%" style="">%gstspd%</span>
+  			<span class="ajax" id="gizmogust">%gstspd%</span>
 		</span>
 		<span class="ajaxcontent6" style="display: none;">Barometer: 
-    		<span class="ajax" id="gizmobaro" lastobs="%baro%" style="">%baro%</span>&nbsp;
-             <span class="ajax" id="gizmobarotrendtext" lastobs="Steady" style="">%pressuretrendname%</span>			
+    		<span class="ajax" id="gizmobaro">%baro%</span><img src="" alt="Rising 0.02  inHg/hr" title="Rising 0.02  inHg/hr" width="7" height="8" style="border: 0; margin: 1px 3px;">   
+             <span class="ajax" id="gizmobarotrendtext">%pressuretrendname%</span>			
 		</span> 
 		<span class="ajaxcontent7" style="display: none;">Rain Today: 
-    		<span class="ajax" id="gizmorain" lastobs="%dayrn%" style="">%dayrn%</span>
+    		<span class="ajax" id="gizmorain">%dayrn%</span>
 		</span>
-		
+		<span class="ajaxcontent8" style="display: none;">UV Index: 
+           <span class="ajax" id="gizmouv">%VPuv%</span>   
+		   <span style="color: #ffffff">
+	         <span class="ajax" id="gizmouvword">None</span>
+		   </span>
+		</span>
 	  </div>
 	  <!-- ##### end of AJAX gizmo  ##### -->
 
@@ -205,15 +236,22 @@ visibility:visible;
 	  </div><!-- end subHeaderRight -->
 </div>
 <!-- end of header -->	
+
+
+<style type="text/css">
+.auto-style1 {
+	border-width: 0px;
+}
+</style>
+
+
 <!-- menubar -->
-<div class="doNotPrint" style="
-    width: 90px;
-">
+<div class="doNotPrint">
       <div class="leftSideBar">
         <p class="sideBarTitle">Navigation</p>
 <div class="flyoutmenu">
 <!-- begin generated flyout menu -->
-<!-- flyout-menu.php (ML) Version 1.10 - 27-Dec-2022 -->
+<!-- flyout-menu.php (ML) Version 1.08 - 05-Feb-2013 -->
 <!-- by Ken True - webmaster[at]saratoga-weather.org and -->
 <!-- by Mike Challis - webmaster[at]642weather.com  -->
 <!-- Adapted from Stu Nicholl's CSS/XHTML at http://www.cssplay.co.uk/menus/flyout_4level.html -->
@@ -232,40 +270,75 @@ Array
  -->
 <!-- using ./flyout-menu.xml for XML, doTrans=1 -->
 <ul>
-  <li><a href="wxindex.php" title="Home Page">Home</a></li>
-  <!-- not used with WD <li><a href="wxmesonet.php" title="Local Weather Exchange Stations">Mesonet</a></li> -->
+  <li><a href="index.php" title="Home Page">Home</a></li>
+  <li><a href="http://willardsharpphotography.com/" title="Photography Blog">Photography</a></li>
   <li class="sub"><a href="#">Radar<!--[if gte IE 7]><!--></a><!--<![endif]-->
     <!--[if lte IE 6]><table><tr><td><![endif]-->
     <ul>
-    <li><a href="wxradar.php" title="Radar from WeatherUnderground">WU Radar</a></li>
-    <li><a href="wxnwsradar.php" title="Radar from NOAA/NWS">NWS Radar</a></li>
+    <li><a href="wxradar.php" title="Waether Underground Radar">WU Radar</a></li>
+    <li><a href="wxkcciradar.php" title="KCCI Radar">KCCI Radar</a></li>
+    <li><a href="wxkcciradar2.php" title="KCCI Radar">KCCI zoomed radar</a></li>
     </ul>
     <!--[if lte IE 6]></td></tr></table></a><![endif]-->
   </li>
-  <li class="sub"><a href="#" title="Weather outlook">Forecast &amp; Advisories<!--[if gte IE 7]><!--></a><!--<![endif]-->
+  <li><a href="wxsatellite.php" title="Satellite">Satellite</a></li>
+  <li class="sub"><a href="#" title="Forecasts">Forecast<!--[if gte IE 7]><!--></a><!--<![endif]-->
     <!--[if lte IE 6]><table><tr><td><![endif]-->
     <ul>
     <li><a href="wxforecast.php">Forecast details</a></li>
-    <li><a href="wxadvisory.php">Advisories</a></li>
+    <li><a href="forecastds.php">Forecast discussion</a></li>
+    <li><a href="https://www.weather.gov/dmx/">Des Moines NWS site</a></li>
     <li><a href="wxuvforecast.php">UV Index Forecast</a></li>
     </ul>
     <!--[if lte IE 6]></td></tr></table></a><![endif]-->
   </li>
-  <li class="sub"><a href="#" title="Trends, Sun/Moon, Earthquakes">Almanac<!--[if gte IE 7]><!--></a><!--<![endif]-->
+  <li><a href="wxadvisory.php" title="Weather Advisories">Advisories</a></li>
+  <li class="sub"><a href="#" title="Madrid historical data">Historical<!--[if gte IE 7]><!--></a><!--<![endif]-->
+    <!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+    <li><a href="wx1dayhistorical.php">Past 24 Hours</a></li>
+    <li><a href="wx3dayhistorical.php">Past 3 Days</a></li>
+    <li><a href="wx7dayhistorical.php">Past 7 Days</a></li>
+    <li><a href="wx30dayhistorical.php">Past 30 Days</a></li>
+    <li><a href="wx1yearhistorical.php">Past 1 Year</a></li>
+    <li><a href="historical.htm">Weather Archives</a></li>
+    </ul>
+    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+  <li class="sub"><a href="#" title="Trends, Sun/Moon">Almanac<!--[if gte IE 7]><!--></a><!--<![endif]-->
     <!--[if lte IE 6]><table><tr><td><![endif]-->
     <ul>
     <li><a href="wxtrends.php">Weather Trends</a></li>
     <li><a href="wxgraphs.php">Station Graphs</a></li>
-    <!-- not used with WD <li><a href="wxstationrecords.php">Station Records</a></li> -->
-    <!-- not used with WD <li><a href="wxjournal.php">Station Journal</a></li> -->
-    <!-- not used with WD <li><a href="wxrecent.php">Recent Weather Summary</a></li> -->
-    <!-- not used with WD <li><a href="wxthismonth.php">Summary This Month</a></li> -->
-    <!-- not used with WD <li><a href="wxyearoveryear.php">Summary Year over Year</a></li> -->
     <li><a href="wxhistory.php">Station Monthly Reports</a></li>
-    <li><a href="wxnoaaclimatereports.php">NOAA reports</a></li>
+    <!-- not used with WD <li><a href="wxnoaaclimatereports.php">NOAA reports</a></li> -->
     <li><a href="wxastronomy.php">Sun/Moon Almanac</a></li>
-    <li><a href="wxquake.php">Earthquake activity</a></li>
-    <li><a href="wxmetar.php">Nearby METAR Reports</a></li>
+    </ul>
+    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+  <li class="sub"><a href="#" title="SPC Convective Outlooks">Convective Outlook<!--[if gte IE 7]><!--></a><!--<![endif]-->
+    <!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+    <li><a href="http://www.spc.noaa.gov/products/outlook/day1otlk.html">Day 1 Outlook</a></li>
+    <li><a href="http://www.spc.noaa.gov/products/outlook/day2otlk.html">Day 2 Outlook</a></li>
+    <li><a href="http://www.spc.noaa.gov/products/outlook/day3otlk.html">Day 3 Outlook</a></li>
+    <li><a href="http://www.spc.noaa.gov/products/exper/day4-8/">Day 4-8 Outlook</a></li>
+    </ul>
+    <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+  </li>
+  <li><a href="http://www.spc.noaa.gov/products/md" title="Meso Discussion">Meso Discussion</a></li>
+  <li><a href="http://www.spc.noaa.gov/products/watch/" title="SPC Watches">SPC Watches</a></li>
+  <li><a href="http://droughtmonitor.unl.edu/" title="Drought">Drought</a></li>
+  <li><a href="http://www.wpc.ncep.noaa.gov/wwd/winter_wx.shtml" title="Winter Weather">Winter Weather Forecasts</a></li>
+  <li><a href="http://mesonet.agron.iastate.edu/data/lsr_snowfall.png" title="SnowFall Totals">Snowfall Totals</a></li>
+  <li><a href="https://www.kcci.com/weather/closings" title="School Closings">School Closings</a></li>
+  <li><a href="http://mesonet.agron.iastate.edu/roads/" title="Iowa Road Conditions">Iowa Road Conditions</a></li>
+  <li class="sub"><a href="#" title="Space Weather">Space Weather<!--[if gte IE 7]><!--></a><!--<![endif]-->
+    <!--[if lte IE 6]><table><tr><td><![endif]-->
+    <ul>
+    <li><a href="http://www.spaceweather.com/">SpaceWeather.com</a></li>
+    <li><a href="http://www.swpc.noaa.gov/SWN/">Space weather now</a></li>
+    <li><a href="http://www.solarham.com/">Solar Cycle 24</a></li>
     </ul>
     <!--[if lte IE 6]></td></tr></table></a><![endif]-->
   </li>
@@ -277,17 +350,6 @@ Array
 <!-- end generated flyout menu -->
 </div>
 <!-- external links -->
-<p class="sideBarTitle">External Links</p>
-<ul>
-   <li><a href="http://www.wunderground.com/" title="Weather Underground">Weather Underground</a></li>
-   <li><a href="http://www.wxforum.net/" title="WXForum">WXforum.net</a></li>
-</ul>
-<!-- nws-alerts icons -->
-<p class="sideBarTitle" style="text-align:center">Alerts</p>
-<div style="text-align:center">
-<a href="wxadvisory.php" title=" &nbsp;Summary" style="width:99%"><br><img src="%NOAAEvent%" alt="%NOAAEvent%" width="74" height="18"></a> <br>
-</div>
-<!-- end nws-alerts icons -->
 <!-- end external links -->
   <!-- begin Color Theme Switcher Plugin http://www.642weather.com/weather/scripts.php -->
   <div class="thisPage" style="margin-left: 5px; font-weight: normal;">
@@ -310,434 +372,953 @@ Array
 <option value="weather-screen-spring.css">Spring</option>
 <option value="weather-screen-taupe.css">Taupe</option>
 <option value="weather-screen-teal.css">Teal</option>
-</select><br>Widescreen:<br><label for="CSSwidescreenOn">On</label> <input type="radio" id="CSSwidescreenOn" name="CSSwidescreen" value="1" checked="checked">
-	| <label for="CSSwidescreenOff">Off</label> <input type="radio" id="CSSwidescreenOff" name="CSSwidescreen" value="0"><br><input type="submit" name="Set" value="Set"></p>
+</select><br>Widescreen:<br><label for="CSSwidescreenOn">On</label> <input type="radio" id="CSSwidescreenOn" name="CSSwidescreen" value="1">
+	| <label for="CSSwidescreenOff">Off</label> <input type="radio" id="CSSwidescreenOff" name="CSSwidescreen" value="0" checked="checked"><br><input type="submit" name="Set" value="Set"></p>
 </form>  </div>
   <!-- end Color Theme Switcher Plugin http://www.642weather.com/weather/scripts.php -->
-      </div><!-- end leftSidebar -->
+
+
+<a href="http://usaweatherfinder.com/"><img src="http://usaweatherfinder.com/button.php?u=JesseLikesWeather" alt="USA Weather Finder" border="0"></a><br>
+
+<a href="http://www.uswxgroup.org"><img src="http://uswxgroup.org/rankings/button.php?u=JesseLikesWeather" alt="United States Weather Group" border="0" width="110"></a><br>
+
+   <br>
+
+<a href="http://www.davisnet.com/weather/products/stations.asp"><img border="0" src="DavisLogo.jpg" width="110" height="21">		  
+      
+		  </a><br>		  
+      
+		  <br>      
+
+   <br>
+
+<a href="http://www.findu.com/cgi-bin/wxpage.cgi?gw4004"><img border="0" src="cwp_logo.gif" width="110" height="112"></a><br>      
+
+<br><a href="http://www.midwesternweather.net/"><img height="100" src="MWWN_roundsmall.jpg" width="100" class="auto-style1"></a>
+		  
+  </div><!-- end leftSidebar -->
 </div><!-- end doNotPrint -->	
 <!-- end of menubar -->
 
-<div id="main-copy" style="
-    font-family: Interstate;
-">
+<div id="main-copy" class="auto-style3">
     
-
-<!-- nws-alerts box -->
-<div style="width:99%; border:solid thin #006699; margin:0px auto 0px auto;">
- <div style=" background-color:#E6E6E3; color: #000; padding:4px 8px 4px 8px; text-align: center">%NOAAEvent% active for MDZ013</div>
-</div>
-<script type="text/javascript" src="nws-alertmap.js"></script>
-<div class="column-dark" style="
-    width: 1150px;
-    font-family: Unterstate;
-">
-<div align="center" style="
-    font-family: Interstate;
-">
+<!-- atom-top-warning.php V2.10 - 15-Jul-2016 -->
+<!-- using cached version from noaawarningraw.txt - age=3 secs. Next fetch in 597 secs. -->
+<div class="advisoryBoxnoactive">%NOAAEvent%</div>
+<!-- zone=IAC015 -->
+<div class="column-dark">
+<div align="center">
   <br>
-<!-- USA-regional-maps-inc.php V1.03 - 05-Apr-2021 -->
-<!-- using https://radar.weather.gov/ridge/standard/PACSOUTHWEST_loop.gif for left map of NWS Southwest Regional Radar -->
-<!-- using https://s.w-x.co/staticmaps/wu/wu/satir1200_cur/usasw/animate.png for left map of WU South West Satellite -->
-  <table width="99%" style="border: none">
-  <tbody><tr><td align="center" style="
-    padding-left: 204px;
-">
-	    <iframe src="https://www.rainviewer.com/map.html?loc=38.8161,-77.0888,9&amp;oFa=1&amp;oC=0&amp;oU=0&amp;oCS=1&amp;oF=0&amp;oAP=0&amp;c=6&amp;o=80&amp;lm=1&amp;layer=radar&amp;sm=1&amp;sn=1&amp;hu=true" width="100%" frameborder="0" style="border:0;height:50vh;" allowfullscreen=""></iframe>
-  </td>
-  <td align="center">
-	    <img src="https://s.w-x.co/staticmaps/wu/wu/satir1200_cur/usane/animate.png" alt="WU South West Satellite" title="WU South West Satellite" width="320" height="240" style="margin: 0px; padding: 0px; border: none">
-  </td>
-  </tr>
-  <tr><td colspan="2" align="center"><small>Radar/Satellite images courtesy of
-  <a href="https://www.rainviewer.com/weather-radar-map-live.html">Rainviewer</a> and  
-  <a href="https://www.weatherunderground.com">Weather Underground</a>.</small></td></tr>
-  </tbody></table>
-	
-	<div align="center" style="
-    font-family: Interstate;
-">
-	<!--  ajax-dashboard.php - Version 1.34 - 03-Apr-2023 - Multilingual -->
+	<img src="./ajax-images/spacer.gif" alt="spacer" height="2" width="620" style="padding:0; margin:0; border: none">
+	<div align="center">
+	<!-- ...................... g:ia 1-->
+<!--   -->
 <!-- fcstby='' fcstscript='advforecast2.php' fcstorg='NWS' -->
-<!-- advforecast2.php (JSON) - V5.19 - 27-Dec-2022 on PHP 8.1.24-->
-<!-- RAW NWS URL: http://forecast.weather.gov/MapClick.php?CityName=Saratoga&state=CA&site=MTR&textField1=37.2639&textField2=-122.022&e=1&TextType=2  zone=CAZ513 -->
-<!-- meta info re: point='37.2639,-122.022' zone='zones' metacache= './cache/forecast-CAZ513-0-geojson-meta.txt' -->
-<!-- metaZoneURL='https://api.weather.gov/zones/forecast/CAZ513' -->
-<!-- meta cache ./cache/forecast-CAZ513-0-geojson-meta.txt age=0:00:27 h:m:s -->
-<!-- loaded meta info from ./cache/forecast-CAZ513-0-geojson-meta.txt age=0:00:27 h:m:s -->
+<!-- advforecast2.php (JSON) - V5.15 - 25-Jun-2020 on PHP 7.4.33-->
+<!-- RAW NWS URL: https://forecast.weather.gov/MapClick.php?CityName=Rockville&state=MD&site=LWX&textField1=39.082&textField2=-77.1512&e=1&TextType=2  zone=MDZ013 -->
+<!-- meta info re: point='39.082,-77.1512 ' zone='zones' metacache= './cache/forecast-MDZ013-0-json-meta.txt' -->
+<!-- metaZoneURL='https://api.weather.gov/zones/forecast/MDZ013' -->
+<!-- loaded meta info from ./cache/forecast-IAZ047-0-json-meta.txt -->
 <!-- META
-array (
-  'city' => 'Saratoga',
-  'state' => 'CA',
-  'point' => '37.2639,-122.022',
-  'forecastOfficeURL' => 'https://api.weather.gov/offices/MTR',
-  'forecastURL' => 'https://api.weather.gov/gridpoints/MTR/94,80/forecast',
-  'forecastZoneURL' => 'https://api.weather.gov/zones/forecast/CAZ513',
-  'forecastZone' => 'CAZ513',
-  'forecastHourlyURL' => 'https://api.weather.gov/gridpoints/MTR/94,80/forecast/hourly',
-  'forecastGridDataURL' => 'https://api.weather.gov/gridpoints/MTR/94,80',
-  'observationStationsURL' => 'https://api.weather.gov/gridpoints/MTR/94,80/stations',
-  'countyZoneURL' => 'https://api.weather.gov/zones/county/CAC085',
-  'countyZone' => 'CAC085',
-  'fireWeatherZoneURL' => 'https://api.weather.gov/zones/fire/CAZ513',
-  'fireWeatherZone' => 'CAZ513',
-  'timeZone' => 'America/Los_Angeles',
-  'radarStation' => 'KMUX',
-  'zoneName' => 'Santa Clara Valley Including San Jose',
-  'WFOname' => 'San Francisco Bay Area/Monterey, CA',
-  'WFOphone' => '(831) 656-1725',
-  'WFOemail' => 'w-mtr.webmaster@noaa.gov',
-) -->
-<!-- point forecastURL = 'https://api.weather.gov/gridpoints/MTR/94,80/forecast' -->
-<!-- zone  forecastURL = 'https://api.weather.gov/zones/forecast/CAZ513/forecast' -->
-<!-- loaded cache file ./cache/forecast-CAZ513-0-geojson.txt - 17721 bytes -->
-<!-- JSON decode - No errors -->
+Array
+(
+    [city] => Rockville
+    [state] => MD
+    [point] => 41.872,-93.813
+    [forecastOfficeURL] => https://api.weather.gov/offices/MDZ013
+    [forecastZoneURL] => https://api.weather.gov/zones/forecast/MDZ013
+    [forecastZone] => MDZ013
+    [forecastHourlyURL] => https://api.weather.gov/gridpoints/LWX/102,68/forecast/hourly
+    [forecastGridDataURL] => https://api.weather.gov/gridpoints/LWX/102,68
+    [observationStationsURL] => https://api.weather.gov/gridpoints/LWX/102,68/stations
+    [countyZoneURL] => https://api.weather.gov/zones/county/MDZ013
+    [countyZone] => IAC015
+    [fireWeatherZoneURL] => https://api.weather.gov/zones/fire/MDZ013
+    [fireWeatherZone] => IAZ047
+    [timeZone] => America/Chicago
+    [radarStation] => KDMX
+    [zoneName] => Boone
+    [WFOname] => Baltimore/Washington
+    [WFOphone] => (571) 888-3500
+    [WFOemail] => w-lwx.webmaster@noaa.gov
+    [forecastURL] => https://api.weather.gov/gridpoints/LWX/102,68/forecast
+)
+ -->
+<!-- point forecastURL = 'https://api.weather.gov/gridpoints/LWX/102,68/forecast' -->
+<!-- zone  forecastURL = 'https://api.weather.gov/zones/forecast/IAZ047/forecast' -->
+<!-- loaded cache file ./cache/forecast-MDZ013.json.txt -->   
 <!-- point forecast processing -->
 
-<!-- dual image 'DualImage.php?i=fg&j=sct' used-->
-<!-- dual image 'DualImage.php?i=sct&j=ra' used-->
-<!-- dual image 'DualImage.php?i=fg&j=sct' used-->
-<!-- forecast updated '2023-10-12T08:26:34+00:00' (Thu, 12-Oct-2023 1:26am PDT) for lat,long or zone '94,80' -->
-<!-- alerts loaded from ./cache/forecast-CAZ513-0-geojson-alerts.txt -->
-<!-- no current hazard alerts for CAZ513 -->
+<!-- dual image 'DualImage.php?i=nbkn&j=nra' used-->
+<!-- forecast updated '2023-11-03T14:32:08+00:00' (11/03/2023 9:32am) for lat,long or zone 'POLYGON((-93.8437525 41.8592405,-93.8440022 41.837427,-93.8147154 41.8372386,-93.8144593 41.8590521,-93.8437525 41.8592405))' -->
+<!-- alerts loaded from ./cache/forecast-IAZ047-0-json-alerts.txt -->
+<!-- preparing 0 warning links -->
+<!-- now 11/03/2023 9:41am (11/03/2023 2:41pm) -->
 <!-- Lang='en' -->
-<!-- start of ajax-dashboard.php -->
-<div class="ajaxDashboard" style="width: 1150px;font-family: Interstate;">
-      <table width="1150" border="0" cellpadding="2" cellspacing="1" style="font-family: Interstate;border:solid;border-color: #CCCCCC;">
+<!-- start of alt-ajax-dashboard.php -->
+<div class="ajaxDashboard" align="center" style="
+    width: 673px;
+">
+    <noscript>
+    <b style="color:red;">Enable JavaScript for live updates and for changing units-of-measure.</b>
+    </noscript>
+     <table border="0" cellpadding="2" cellspacing="1" style="width: 19%;border:solid;border-color: #CCCCCC;">
         <tbody style="
-    width: 250px;
-    font-family: Interstate;
+    width: 36%;
 "><tr align="center">
-          <td class="data1" colspan="4" style="text-align: center">
-		    <span class="ajax" id="ajaxindicator" style="" lastobs="Updates paused - reload page to start">Updates paused - reload page to start</span>&nbsp;@ 
-		    &nbsp;<span class="ajax" id="ajaxtime" lastobs="%timesec%" style="">%timesec%</span>
-                        <script type="text/javascript">
-<!--
-document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
-//-->
-            </script><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b><b> - updated <span id="ajaxcounter">1267</span>&nbsp;sec ago</b>
-                      </td>
+            
+            <td class="data2" colspan="3" style="text-align: center">
+                <span class="ajax" id="ajaxindicator" style="">Updated:</span>
+                <span class="ajax" id="ajaxdate2">
+%date% @ %time%<!-- Uses Settings.php values -->
+                </span>
+                <span class="ajax" id="ajaxntimess">   </span>
+                                        </td>
         </tr>
-        <tr align="center" style="
-    font-family: Interstate;
-">
-          <td class="datahead">Summary / Temperature</td>
-          <td class="datahead">Wind</td>
-	            <td class="datahead">Rain</td>
-	           <td class="datahead">Outlook</td>
+        <tr align="center">
+            <td class="datahead">Temperature</td>
+            <td class="datahead">Current Conditions</td>
+            <td class="datahead" colspan="2">Forecast / Storm Prediction</td>
         </tr>
-        <tr align="left" style="
-    font-family: Interstate;
-">
-          <td valign="top" rowspan="5">
-		    <table width="180" border="0" cellpadding="2" cellspacing="0">
-			  <tbody><tr>
-				<td align="center" valign="top" class="data1" style="text-align: center;border: none">
-				<span class="ajax" id="ajaxconditionicon2" lastobs="<img src=&quot;./ajax-images/novc.jpg&quot; width=&quot;55&quot; height=&quot;58&quot; alt=&quot;Current condition icon&quot; />" style=""><img src="forecasticonmetar.gif" width="55" height="58" alt="Current condition icon"></span> 
-				</td>
-				<td class="data1" style="text-align: center;border: none"><span class="ajax" id="ajaxcurrentcond" lastobs="Night time, Dry, Mostly cloudy" style="">%weatherreport%</span> 
-				</td>
-			  </tr>
-              <tr align="center">
-                <td align="center" valign="top" class="data1" style="text-align: center;border: none">
-				  <span class="ajax" id="ajaxthermometer" lastobs="<img src=&quot;./thermometer.php?t=49.5&quot; width=&quot;54&quot; height=&quot;170&quot; alt=&quot;Currently: 49.5&amp;deg;F, Max: 53.8&amp;deg;F, Min: 49.5&amp;deg;F&quot; title=&quot;Currently: 49.5&amp;deg;F, Max: 53.8&amp;deg;F, Min: 49.5&amp;deg;F&quot; />" style=""></span> 
-				</td>
-                <td class="data1" style="text-align: center;border: none" valign="middle">
-				  <span class="ajax" id="ajaxtemp" style="font-size: 20px;" lastobs="49.5&amp;deg;F">%temp%</span>
-				  <br>
-				  
-				  <br><br>
-                  <span class="ajax" id="ajaxheatcolorword" lastobs="<span style=&quot;border: solid 1px; color: black; background-color: #%currenttemphtml%;&quot;>&nbsp;Cool&nbsp;</span>" style="
-    background-color: #%currenttemphtml%;
-"><span style="border: solid 1px; color: black; background-color: #%heathtml%;">&nbsp;%heatcolourword%&nbsp;</span></span>
-                  <br><br>
-                                    Feels like: %feelslike%&amp;deg;F 
-				  <br><br>
-                                                      24-hr difference				  <br>
-                  %tempchange24hour%                                  </td>
-              </tr>
-                            <tr>
-                <td colspan="2" align="center">
-				  <table width="100%" class="data1" style="font-size: 9px;border: none">
+        <tr align="center">
+            <td valign="top" class="data1">
+                <table align="center" border="0" cellpadding="0" cellspacing="4" style="width:180px">
                     <tbody><tr>
-                      <th>&nbsp;</th>
-                      <th style="text-align: center;">Today</th>
-                                            <th style="text-align: center;">Record</th>
-                                          </tr>
+                        <td align="center" colspan="2" style="border: 1px solid gray;">
+                            Currently Outside:
+                            <span class="ajax" id="ajaxtemparrow">
+                            <img src="conditionscolour.jpg" alt="Warmer 0.9 than last hour." title="Warmer 0.9 than last hour." width="147" height="147" style="height: 33px;border: 0;margin: 1px 3px;"></span><br><br>
+                            <strong><span class="ajax" id="ajaxtemp" style="font-size: 38px">%temp%</span></strong><br><br>
+                                                                                  
+                            <span class="ajax" id="ajaxheatcolorword">---</span><br>
+                        </td>
+                    </tr>
                     <tr>
-                      <td style="text-align: right;"><strong>High:</strong></td>
-                      <td style="text-align: center;">
-					    <span class="ajax" id="ajaxtempmax" lastobs="53.8&amp;deg;F" style="">%WUmaxtemp%</span><br>
-                        
-					  </td>
-                                            <td style="text-align: center;">%WUmaxtempr% %WUmaxtempryr% </td>
-                                          </tr>
-                    <tr>
-                      <td style="text-align: right;"><strong>Low:</strong></td>
-                      <td style="text-align: center;">
-					    <span class="ajax" id="ajaxtempmin" lastobs="49.5&amp;deg;F" style="">%WUmintemp%</span><br>
-                        
-					  </td>
-                                            <td style="text-align: center;">%WUmintempr% - %WUmintempryr%                       </td>
-                                          </tr>
-                  </tbody></table>
-				</td>
-              </tr>
-                          </tbody></table>
-		  </td>
-          <td valign="middle">
-		    <table width="360" border="0" cellpadding="2" cellspacing="0">
-              <tbody><tr>
+                        <td align="center" valign="top" style="text-align: center; border: 1px solid red;">
+                            High Today<br>
+                            <strong><span class="ajax" id="ajaxtempmax" style="font-size: 16px">%maxtemp%</span></strong><br>%maxtempt%</td>
+                        <td align="center" valign="top" style="text-align: center; border: 1px solid blue;">
+                             Low Today<br>
+                            <strong><span class="ajax" id="ajaxtempmin" style="font-size: 16px">%mintemp%</span></strong><br>%mintempt%</td>
+                    </tr>
+                                                    <tr>
+                            <td align="center" valign="top" style="text-align: center; border: 1px solid red;">
+                                Yest High<br>
+                                <strong><span style="font-size: 16px"><span class="convTemp" style="">%maxtempyest%</span></span></strong><br>%maxtempyestt%</td>
+                            <td align="center" valign="top" style="text-align: center; border: 1px solid blue;">
+                                Yest Low<br>
+                                <strong><span style="font-size: 16px"><span class="convTemp" style="">%mintempyest%</span></span></strong><br>%mintempyestt%</td>
+                        </tr>
+                <tr>
+                    <td align="center" valign="top" style="text-align: center; border: 1px solid red;">
+                          Sta* High<br>
+                          <strong><span style="font-size: 16px"><span class="convTemp" style="">%WUmaxtempr%</span></span></strong><br>%WUmaxtempryr%</td>
+                    <td align="center" valign="top" style="text-align: center; border: 1px solid blue;">
+                          Sta* Low<br>
+                          <strong><span style="font-size: 16px"><span class="convTemp" style="">%WUmintempr%</span></span></strong><br>%WUmintempryr%</td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2" style="font-size: 8px">My Station is less than a year old. So My Nearest Station's records are displayed here</td>
+                        </tr>
+                </tbody></table>
+                    </td>
+                    <td align="center" class="data1" valign="top">
+                <table align="center" border="0" cellpadding="0" cellspacing="4" style="width:180px">
+                <tbody><tr>
+                    <td valign="middle" align="center" style="border: none;">
+                        <span class="ajax" id="ajaxconditionicon2">
+                        <img src="forecasticonmetar.gif" alt="" title="" height="74" width="74">
+                        </span>
+                    </td>
+                    <td align="center" style="text-align: center; border: 1px solid gray;">
+                        <span class="ajax" id="ajaxcurrentcond">
+                        <!-- fixupCondition in='%weathercond%' ocnt='2' --><!-- vals split on slash -->%currentcond%</span><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <span class="ajax" id="ajaxwindiconwr">
+                                                        <img src="directiondial.gif" height="75" width="75" title="Wind from S" alt="Wind from S" style="text-align:center">
+                        </span> 
+                    </td>
+                    <td valign="middle" style="text-align: center; border: 1px solid gray;">
+                        Wind:   
+                            <strong><span style="font-size: 14px" class="ajax" id="ajaxwinddir">%dirlabel%</span><br>
+                            <span style="font-size: 14px" class="ajax" id="ajaxwind">%avgspd%</span></strong><br>
+                            <span class="meas">Gusting to:<br></span>
+                            <span class="ajax" id="ajaxgust">%gstspd%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="middle" style="text-align: center;">
+                        <img src="raintodayvertical.gif" alt="Current Rain">                    </td>
+                    <td valign="middle" style="text-align: center; border: 1px solid gray;">
+                        Rain:<br>
+                        <span style="font-size: 18px" class="ajax" id="ajaxrain">%dayrn%</span>
+                    </td>
+                </tr>
+                <tr>
+                  
+                    <td style="text-align: center;"><span id="ajaxcbiimg">
+                        <img src="fwipointer.gif" width="83" height="83" alt="Chandler Burning Index: LOW"></span>
+                    </td>
+                    <td class="data1 center" valign="middle" style="text-align: center; border:1px solid gray;">
+                        Current CBI<br>Fire Danger:<br>
+                            <span class="ajax" id="ajaxcbiindex">4.1</span> of 100 <br>
+                    </td>
+                  
+                </tr>
+            </tbody></table>
+                    </td>
+                    <td class="data1" valign="top" align="center" colspan="3" style="border-bottom:0px">
+            <table align="center" border="0" cellpadding="0" cellspacing="4" style="width:230px">
+                <tbody><tr>
+                    <td class="data1" valign="top" align="center" style="text-align: center; font-size: 11px; border: 1px solid gray;">
+                        <strong>Today<br><br></strong><img src="forecasticon5day1.gif" alt="Today: Mostly Cloudy" title="Today: Mostly cloudy, with a high near 59. West wind around 9 mph." style="
+    width: 55px;
+"><br>Mostly Cloudy <br>                    </td>
+                    <td align="center" valign="top" style="text-align: center; font-size: 11px; border:  1px solid gray;">
+                        <strong>Tonight<br><br></strong><img src="forecasticon5day2.gif" alt="Tonight: Mostly Cloudy" title="Tonight: Mostly cloudy. Low around 34, with temperatures rising to around 36 overnight. North wind 5 to 8 mph." style="
+    width: 55px;
+"><br>Mostly Cloudy <br>                    </td>
+                    <td align="center" valign="top" style="text-align: center; font-size: 11px; border:  1px solid gray;">
+                        <strong>Saturday<br><br></strong><img src="forecasticon5day3.gif" alt="Saturday: Mostly Sunny" title="Saturday: Mostly sunny. High near 55, with temperatures falling to around 52 in the afternoon. Northwest wind around 6 mph." style="
+    width: 55px;
+"><br>Mostly Sunny <br>                    </td>
+                </tr>
                 
-                <td valign="middle" class="data1" style="text-align: center; border: none;">
-					<span class="ajax" id="ajaxwinddir" lastobs="SW" style="">%dirlabel%</span><br> 
-					<span class="ajax" id="ajaxwind" lastobs="1.0 mph" style="">%avgspd% mph</span><br>
-					<span class="meas">Gust:<br></span> 
-					<span class="ajax" id="ajaxgust" lastobs="1.2 mph" style="">%gstspd% mph</span> 
-				</td>
-              </tr>
-               <tr>
-                <td colspan="2" class="data1" align="center" style="text-align:center">
-				  <span class="ajax" id="ajaxbeaufortnum" lastobs="0" style="">%currbftspeed%</span><i>
-				  <span class="ajax" id="ajaxbeaufort" lastobs="Calm" style="">%bftspeedtextcurr%</span></i>
-				</td>
-              </tr>
-                          <tr>
-                <td colspan="2" class="data1" align="center">
-				  Today: 
-				  <span class="ajax" id="ajaxwindmaxgust" lastobs="2.3 mph" style="">%bftmaxgusttodaynum%</span> 
-				  <span class="ajax" id="ajaxwindmaxgusttime" lastobs="12:02am" style="">12:02am</span>
-				</td>
-              </tr>
-                                          <tr>
-                <td colspan="2" class="data1" align="center">
-				  Gust Month: %monthtodatemaxgust%  mph 
-                  				  %mrecordhighgustmonth%/%mrecordhighgustday% 
-                  				</td>
-              </tr>
-                          </tbody></table>
-		  </td>
-          <td valign="middle"><table width="166" border="0" cellpadding="2" cellspacing="0">
-                  <tbody><tr>
-                <td class="data1">Rain Today:</td>
-                <td style="text-align: right;" class="data1">
-				  <span class="ajax" id="ajaxrain" lastobs="%dayrn% in" style="">%dayrn% in</span>
-				</td>
-              </tr>
-              <tr>
-                <td class="data1">Rain Rate (/hr):</td>
-                <td style="text-align: right;" class="data1">
-				  <span class="ajax" id="ajaxrainratehr" lastobs="0.000 in" style="">%hourrn% in</span>
-				</td>
-              </tr>
-                            <tr>
-                <td class="data1" nowrap="nowrap">Rain Yesterday: </td>
-                <td style="text-align: right;" class="data1">
-				  <span class="ajax" id="ajaxrainydy" lastobs="0.00 in" style="">0.00 in</span>
-				</td>
-              </tr>
-              			                 <tr>
-                <td class="data1" nowrap="nowrap">Storm Rain: </td>
-                <td style="text-align: right;" class="data1">
-                  %totalrainlast3hours% in				</td>
-              </tr>
-			               <tr>
-                <td class="data1">This Month:</td>
-                <td style="text-align: right;" class="data1">
-				  <span class="ajax" id="ajaxrainmo" lastobs="0.00 in" style="">%monthrn% in</span>
-				</td>
-              </tr>
-              <tr>
-                <td class="data1" nowrap="nowrap">Season Total:</td>
-                <td style="text-align: right;" class="data1">
-				  <span class="ajax" id="ajaxrainyr" lastobs="0.00 in" style="">%yearrn% in</span>
-				</td>
-              </tr>
-			                              <tr>
-                <td class="data1" colspan="2">
-				  %dayswithnorain% days since last rain.                </td>
-              </tr>
-              	             </tbody></table>
-		  </td>
-          <td align="center" valign="middle">
-		    <table border="0" cellpadding="2" cellspacing="0">
-              <tbody><tr>
-                <td class="data1" align="center" style="font-size: 8pt; border:none;text-align: center">
-				  <strong>%5dayforecastdayday1%<br><br></strong><img src="forecasticon5day1.gif" alt="" title="%5dayforecastday1%" style="
-    width: 55px;
-"><br>%5dayforecastday1%<br>			   </td>
-              </tr>
+            
+                <tr>
+                    <td align="center" colspan="3">
+                        <a href="http://www.spc.noaa.gov/" target="_blank" title="NWS Storm Prediction Center in New Tab">
+                        <img src="http://www.spc.noaa.gov/products/activity_loop.gif" alt="SPC Activity Map" style="height:195px;width:265px;border:1px solid gray"></a>
+                    </td>
+                </tr>
             </tbody></table>
-		  </td>
-        </tr>
-        <tr align="center" valign="top">
-          <td class="datahead">Humidity &amp; Barometer</td>
-          <td class="datahead">Almanac</td>
-          <td class="datahead">Moon</td>
-        </tr>
-        <tr align="center" valign="middle" style="
-    background-color: darkblue;
-    font-family: Interstate;
-">
-          <td valign="middle"><table width="180" border="0" cellpadding="2" cellspacing="0">
-              <tbody><tr>
-                <td class="data1">Humidity:</td>
-                <td style="text-align: center;" class="data1">
-				  <span class="ajax" id="ajaxhumidity" lastobs="81" style="">%hum%</span>%
-                  &nbsp;				</td>
-              </tr>
-              <tr>
-                <td class="data1">Dew Point: </td>
-                <td style="text-align: center;" class="data1">
-				  <span class="ajax" id="ajaxdew" lastobs="43.9&amp;deg;F" style="">%dew%</span>
-                                  </td>
-              </tr>
-              <tr>
-                <td class="data1">Barometer:</td>
-                <td style="text-align: center;" class="data1">
-				  <span class="ajax" id="ajaxbaro" lastobs="29.84 inHg" style="">%baro% inHg</span>
-				  
-				 </td>
-              </tr>
-              <tr>
-                <td class="data1">Baro Trend: </td>
-                <td style="text-align: center;" class="data1">
-				  <span class="ajax" id="ajaxbarotrendtext" lastobs="Steady" style="">%pressuretrendname%</span>
-				</td>
-              </tr>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td class="datahead">Dew Point</td>
+                    <td class="datahead">Liquid Precipitation</td>
+                    <td class="datahead">Wind Speed</td>
+                    <td class="datahead">Sun/Moon</td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle">
+            <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+                <tbody><tr>
+                    <td class="data1" nowrap="nowrap">Current: </td>
+                    <td class="data1" style="text-align: right;">
+                                                <span class="ajax" id="ajaxdew"><span class="convTemp" style="">%dew%</span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Last Hour Change: </td>
+                    <td class="data1" style="text-align: right;">
+                                                <span class="convTemp" style="">%dewchangelasthour%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px;">High %maxdewt%: </td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right;">
+                        <span class="convTemp" style="">%maxdew%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px;">Low %mindewt%: </td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right;">
+                        <span class="convTemp" style="">%mindew%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Record High: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="convTemp" style="">%recordhighdew%&deg;F</span><br>
+                        %recordhighdewmonth%/%recordhighdewday%/%recordhighdewyear%                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Record Low: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="convTemp" style="">%recordlowdew%&deg;F</span><br>
+                        %recordlowdewmonth%/%recordlowdewday%/%recordlowdewyear%                    </td>
+                </tr>
+                <tr>
+                        <td class="data2" style="text-align: left;">Wetbulb:</td>
+                        <td class="data2" style="text-align: right;">
+                        <span class="ajax" id="ajaxwetbulb"><span class="convTemp" style="">%wetbulb%</span></span>
+                    </td>
+                </tr>
             </tbody></table>
-		  </td>
-          <td align="center" valign="middle">
-		    <table width="166" border="0" cellpadding="2" cellspacing="0">
-              <tbody><tr>
+                    </td>
+                    
+                    <td valign="middle" align="center" rowspan="3">
+            <table border="0" cellpadding="0" cellspacing="2" style="width:180px">
+                <tbody><tr>
+                    <td class="data1" colspan="2" style="text-align: center;">
+                        <span class="ajax" id="imagereLoader">
+                            <script type="text/javascript">
+                            <!--
+                            //<![CDATA[
+                            function reloadImage() {
+                            var now = new Date();
+                            if (document.images && (ajaxUpdates < update.maxupdates)) {
+                            document.images.RainGraph.src ='raintoday.gif?' + now.getTime();
+                            }
+                            setTimeout('reloadImage()',15000);
+                            }
+                            setTimeout('reloadImage()',15000);
+                            //]]>
+                            -->
+                        </script>
+                        </span>
+                        Rain Today<br>  
+                        <img id="RainGraph" src="raintoday.gif" width="178" alt="rain graph"><br><br>  
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1">
+                        Today:
+                    </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="ajax" id="ajaxrain2">%dayrn%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Yesterday: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="ajax" id="ajaxrainYes">%yesterdayrain%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Last 7 Days: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="convRain" style="">%raincurrentweek% in.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">%monthname% Rain:</td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="ajax" id="ajaxrainmo">%monthrn%</span>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="data1" nowrap="nowrap">
+                        <span style="font-size:8.5px; line-height:120%">%monthname% to Date<br>      Diff from Avg:</span>
+                    </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                                                <span class="convRain" style="">%monthrn%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">%monthname% Avg:</td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="convRain" style="">%myavnovrain%</span>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    
+                </tr>
+                
+                
+                <tr>
+                    
+                    
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Last Rain<br>Time/Date: </td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 9px; text-align: right;">%dateoflastrain%<br>at %timeoflastrain%</td>
+                </tr>
+                <tr>
+                    <td class="data2" colspan="2" style="text-align: center;">
+                        103 rain days in %date-year%                    </td>
+                </tr>
+                <tr>
+                    <td class="data2" colspan="2" style="text-align: center;">
+                        0 days in %monthname%<br>
+                        6 days since last rain                    </td>
+                </tr>
+            </tbody></table>
+                    </td>
+                    <td valign="middle" align="center">
+            <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+                <tbody><tr>
+                    <td class="data1" nowrap="nowrap" align="center">Current: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right; ">
+                        <span class="ajax" id="ajaxwinddir2">%dirlabel%</span>   
+                        <span class="ajax" id="ajaxwind2">%avgspd%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" align="center" nowrap="nowrap">1Hr Average: </td>
+                    <td class="data1" style="text-align: right;">
+                                                    <span class="convWind" style="">%avwindlastimediate60%</span>
+                                            </td>
+                </tr>
+                <tr>
+                    <td class="data2" nowrap="nowrap">Wind Run: </td>
+                    <td class="data2" nowrap="nowrap" style="text-align: right;">
+                        <span class="ajax" id="ajaxwindrun"><span class="convDist" style="">%windrun% miles</span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" class="datahead" colspan="2">
+                         Wind Gust                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" align="center">Current: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="ajax" id="ajaxgust2">%gstspd%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 11px;">Today: </td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right;">
+                        <span class="ajax" id="ajaxwindmaxgust2">%maxgst%</span> mph                        <span class="ajax" id="ajaxwindmaxgusttime">%maxgstt%</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 11px;">Month: </td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right; ">
+                        <span class="convWind" style="">%monthtodatemaxgust% mph</span>%mrecordhighgustmonth%/%mrecordhighgustday% </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 11px;">Year:</td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right; ">
+                        <span class="convWind" style="">%yrecordwindgust% mph</span>
+                         %yrecordhighgustmonth%/%yrecordhighgustday%                    </td>
+                </tr>
+                <tr>
+                    <td class="data2" nowrap="nowrap">Record Gust:</td>
+                    <td class="data2" nowrap="nowrap" style="text-align: right;">
+                        <span class="convWind" style="">%recordhighgust% mph</span><br>
+                        %recordhighgustmonth%/%recordhighgustday%/%recordhighgustyear%                    </td>
+                </tr>
+            </tbody></table>
+                    </td>
+                    <td rowspan="3" valign="middle" align="center">
+            <table border="0" cellpadding="4" cellspacing="0">
+                <tbody><tr>
+                    <td class="data1" style="text-align: center; background:transparent">Sunlight:<br>
+                         
+                    <table align="center"><tbody><tr><td style="width:80px">
+                                                    <span class="data2" style="position: relative; font-weight:lighter; font-size:9px; line-height:140%; background:transparent">%hoursofpossibledaylight% hrs<br>of Sunlight Today<br></span>
+                                                                                    
+                            <span style="position:relative; float:right; margin-top:-36px; margin-right:10px; font-weight:lighter; color:#FFFFFF; font-size:8px">      <!-- was 5 -->
+                            57.1%</span>
+                                                        <span class="data2" style="position:relative; margin-top:10px; font-weight:lighter; font-size:9px; line-height:140%; background:transparent">
+                            <br>Which is <br>2 min 27 sec Shorter<br>Than Yesterday<br>   </span> </td></tr></tbody></table>
+                                                                    </td>
+                </tr>
+                <tr>
+                    <td class="data2" style="text-align: center; font-size: 12px;">
+                    <span class="ajax" id="ajaxmoonphase"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;"><span id="ajaxmoonimg"><img src="moonicon.gif" alt="" title="" width="60" height="60" style="background-color: black;border: 0;"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data2" style="text-align: center; font-size: 12px;">
+                        <span class="ajax" id="ajaxmoonpct">%moonphase%</span><br>
+                         Illuminated                    </td>
+                </tr>
+            </tbody></table>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td class="datahead">Humidity</td>
+                    <td class="datahead">Barometer</td>
+                </tr>
+                <tr>
+                    <td align="center">
+            <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+                <tbody><tr>
+                    <td class="data1">Current:</td>
+                    <td class="data1" style="text-align: right;">
+                                                <span class="ajax" id="ajaxhumidity">%hum%</span>%
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Last Hour:</td>
+                    <td class="data1" style="text-align: right;">%humchangelasthour%%</td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px;">High %highhumt%:</td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right;">%highhum%%</td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px;">Low %lowhumt%:</td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right;">%lowhum%</td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Record High: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">%recordhighhum%%<br>
+                        %recordhighhummonth%/%recordhighhumday%/%recordhighhumyear%                    </td>
+                </tr>
+                <tr>
+                    <td class="data2" nowrap="nowrap">Record Low: </td>
+                    <td class="data2" nowrap="nowrap" style="text-align: right;">%recordlowhum%%<br>
+                        %recordlowhummonth%/%recordlowhumday%/%recordlowhumyear%                    </td>
+                </tr>
+            </tbody></table>
+                    </td>
+                    <td align="center" valign="middle">
+            <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+                <tbody><tr>
+                    <td class="data1" nowrap="nowrap">Current:</td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="ajax" id="ajaxbaroarrow">
+                        <img src="./ajax-images/rising.gif" alt="Rising 0.021  inHg/hr" title="Rising 0.021  inHg/hr" width="8" height="8" style="border: 0; margin: 1px 3px;"></span>
+                        <span class="ajax" id="ajaxbaro">
+                            29.907 inHg</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Last Hour:</td>
+                    <td class="data1" style="text-align: right;">
+                       <span class="ajax" id="ajaxbarotrendtext">
+                       Rising slowly</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px;">High 12:00 AM:</td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right;">
+                        <span class="ajax" id="ajaxbaromax">
+                        29.997 in.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px;">Low 8:32 AM:</td>
+                    <td class="data1" nowrap="nowrap" style="font-size: 10px; text-align: right;">
+                        <span class="ajax" id="ajaxbaromin">
+                        29.880 in.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Record High: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="convBaro" style="">%recordhighbaro%</span><br>
+                        %recordhighbaromonth%/%recordhighbaroday%/%recordhighbaroyear%                    </td>
+                </tr>
+                <tr>
+                    <td class="data2" nowrap="nowrap">Record Low: </td>
+                    <td class="data2" nowrap="nowrap" style="text-align: right;">
+                        <span class="convBaro" style="">%recordlowbaro%</span><br>%recordhighbaromonth%/%recordhighbaroday%/%recordhighbaroyear%</td>
+                </tr>
+            </tbody></table>
+                    </td>
+                </tr>
+                <tr align="center" valign="top">
+                    <td class="datahead">
+                         Heating Degree Days                     </td>
+                    <td class="datahead">Snow<sup>3</sup></td>
+                    <td class="datahead">
+                     Wind Chill                     </td>
+                </tr>
+                <tr align="center" valign="middle">
+                    <td valign="middle">
+            <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+                <tbody><tr>
+                    <td class="data1">Today:</td>
+                    <td style="text-align: right;" class="data1">%hddday%</td>
+                </tr>
+                <tr>
+                    <td class="data1" style="text-align: left;">%monthname%:</td>
+                    <td class="data1" style="text-align: right;">%hddmonth%</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;" class="data2">%date-year% to Date:</td>
+                    <td style="text-align: right;" class="data2">%hddyear%</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" class="datahead" colspan="2">
+                     Cooling Degree Days                     </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;" class="data2">%date-year% to Date:</td>
+                    <td style="text-align: right;" class="data2">%cddyear%</td>
+                </tr>
+            </tbody></table>
+                    </td>
+                    <td align="center" valign="middle" rowspan="3">
+            <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+                <tbody><tr>
+                    <td class="data1">Today: </td>
+                    <td class="data1" style="text-align: right;">
+                        <span class="ajax" id="ajaxsnowToday2">
+                            0.00 in</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1">Yesterday:</td>
+                    <td class="data1" style="text-align: right;">
+                        <span class="convSnow" style="">0.00 in</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Nov Snow: </td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <img src="./ajax-images/falling.gif" alt="Under 1.772 in for the month" title="Under 1.772 in for the month" width="8" height="8" style="border: 0; margin: 1px 3px;">                        <span class="ajax" id="ajaxsnowMonth">    0.00 in</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Nov Avg:</td>
+                    <td class="data1" nowrap="nowrap" style="text-align: right;">
+                        <span class="convSnow" style="">1.77 in</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" nowrap="nowrap">Diff from Avg:</td>
+                    <td class="data1" style="text-align: right;">
+                        <span class="convSnow" style="">-1.77 in</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1">Season Total:<sup>2</sup></td>
+                    <td class="data1" style="text-align: right;">
+                        <span class="ajax" id="ajaxsnowSeason">    0.00 in</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1">Snow Depth: </td>
+                    <td class="data1" style="text-align: right;">
+                        <span class="ajax" id="ajaxsnowDepth">
+                            0.00 in</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" colspan="2" style="text-align: center;">
+                        0 snow days in November                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" colspan="2" style="text-align: center;">
+                        0 snow days this season.<sup>2</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="data1" colspan="2" style="text-align: center;">
+                        First Snow of Season:<br>
+                                                //                    </td>
+                </tr>
+                <tr>
+                    <td class="data2" colspan="2" style="text-align: center;">
+                        Average 1st Snow:<br>
+                                            </td>                
+                </tr>
+              
+        </tbody></table>
+                </td>
+                <td align="center">
+        <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+            <tbody><tr>
+                <td class="data1">Current:</td>
+                <td style="text-align: right;" class="data1">
+                    <span class="ajax" id="ajaxwindchill">%windch%</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="data1" nowrap="nowrap" style="text-align: left;">Low <span class="ajax" id="ajaxwindchillmintime">%minwindcht%</span>:</td>
+                <td class="data1" nowrap="nowrap" style="text-align: right;">
+                    <span class="ajax" id="ajaxwindchillmin">%minwindch%</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="data1">Yesterday:</td>
+                <td style="text-align: right;" class="data1">
+                    <span class="convTemp" style="">%minchillyest%</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="data2" nowrap="nowrap" style="text-align: left;">Record:</td>
+                <td class="data2" nowrap="nowrap" style="text-align: right;">
+                    <span class="convTemp" style="">%recordlowchill%</span><br>
+                    %recordlowchillmonth%/%recordlowchillday%/%recordlowchillyear%                </td>
+            </tr>
+        </tbody></table>
+                </td>
+                
+
+
+            </tr><tr>
+                <td class="datahead" style="text-align:center">Current UV Index</td>
+                <td class="datahead" style="text-align:center">Current Solar Energy</td>
+            </tr>
+            <tr>
+                <td align="center">
+        <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+            <tbody><tr>
+                
+                <td align="center" style="width:30%">
+                                                            <span class="ajax" id="ajaxuvimg">
+                    <img src="uvdial.gif" height="125" width="125" alt="" title="Current UV rate"></span>
+                </td>
+                <td class="data2" style="width:35%; text-align:center; font-size: 9px;">
+                    Highest:<br>
+                    12:00 AM<br>
+                    <span style="font-size: 14px;">0.0</span>
+                </td>
+            </tr>
+        </tbody></table>
+                </td><td align="center">
+        <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+            <tbody><tr>
+                <td align="center" nowrap="nowrap" class="data2" style="width:35%; text-align: center; font-size: 9px;">
+                <span class="ajax" id="toggleSI">
+
+                <span class="ajax" id="ajaxsolar" style="font-size: 14px;">54</span> W/m<sup>2</sup><br>
+                <span class="ajax" id="ajaxsolarpct">24</span>%<br>
+                <span onclick="javascript:toggle_SI()"><span class="ajax" id="ajaxSIWm2" style="  cursor:pointer; display:inline; font-size: 8px;">W/m<sup>2</sup> <b></b> SI</span></span>
+                <span onclick="javascript:toggle_SI()"><span class="ajax" id="ajaxSISolarp" style="  cursor:pointer;  display:none; font-size: 8px;"></span></span>
+                                </td>
+                <td align="center" style="width:30%">
+                <span class="ajax" id="ajaxSIimgWm2" style="display:inline" onclick="javascript:toggle_SI()"> 
+                <span class="ajax" style="cursor:pointer" id="ajaxsiimg"><img src="ajax-images/SI0.gif" height="65" width="34" alt="" title="Current Solar Index Using WM2"></span></span>
+                <span class="ajax" id="ajaxSIimgSolarp" style="display:none; cursor:pointer" onclick="javascript:toggle_SI()">
+                <span class="ajax" style="cursor:pointer" id="ajaxsiimg2"><img src="ajax-images/SI2.gif" height="65" width="34" alt="" title="Current Solar Index Using Solar%"></span></span>
+                                </td>
+                <td class="data2" style="width:35%; text-align:center; font-size: 9px;">
+                    High Today:<br>
+                    9:38 AM<br>
+                    <span style="font-size: 11px;">54   </span>
+                    <span style="font-size: 9px;">W/m<sup>2</sup></span>
+                    <span style="font-size: 7px;">
+                    Record:<br>1413   W/m<sup>2</sup></span>
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+            <tr align="center">
+                <td class="datahead">Almanac</td>
+                <td class="datahead">I will put something here soon. Thanks for your patience</td>
+                <td class="datahead">Station All Time Records</td>
+                <td class="datahead">
+ Outlook           
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" align="center">
+        <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+            <tbody><tr>
+                            <td class="data1">Currently:</td>
+                <td class="data1" style="text-align: right;">
+                    Morning                </td>
+            </tr>
+            
+            <tr>
                 <td class="data1">Sunrise:</td>
-                <td style="text-align: right;" class="data1">%sunrise%</td>
-              </tr>
-              <tr>
+                <td class="data1" style="text-align: right;">%sunrise%</td>
+            </tr>
+            <tr>
                 <td class="data1">Sunset:</td>
-                <td style="text-align: right;" class="data1">
-				  %sunrise%				</td>
-              </tr>
-              <!--   moonrise='5:10 am' before moonset='5:26 pm' today -->
-              <tr>
+                <td class="data1" style="text-align: right;">%sunset%</td>
+            </tr>
+            <tr>
                 <td class="data1">Moonrise:</td>
-                <td style="text-align: right;" class="data1">
-				  %moonrise%				</td>
-              </tr>
-              <tr>
+                <td class="data1" style="text-align: right;">%moonrise%</td>
+            </tr>
+            <tr>
                 <td class="data1">Moonset:</td>
-                <td style="text-align: right;" class="data1">
-				  %moonset%				</td>
-              </tr>
-                         </tbody></table>
-		  </td>
-          <td rowspan="3" valign="middle" align="center">
-		    <table border="0" cellpadding="4" cellspacing="0">
-              <tbody><tr>
-                <td class="data1" style="text-align: center; border: none;">%moonphasename%</td>
-              </tr>
-              <tr>
-                <td style="text-align: center;"><img src="moonicon.gif" alt="Waning Crescent, Moon at 27 days in cycle" title="%mooonphasename%" width="48" height="48" style="border: 0;background-color: black;">
-			    </td>
-              </tr>
-              <tr>
-                <td class="data1" style="text-align: center; border: none;">%moonphase%<br>
-                  Illuminated				</td>
-              </tr>
-            </tbody></table>
-    </td>
-		  
-        </tr>
+                <td class="data1" style="text-align: right;">%moonset%</td>
+            </tr>
+            <tr>
+                <td class="data1">Full Moon:</td>
+                <td class="data1" nowrap="nowrap" style="text-align: right;">%fullmoon%</td>
+            </tr>
+            <tr>
+                <td class="data2">New Moon:</td>
+                <td class="data2" nowrap="nowrap" style="text-align: right;">%newmoon%</td>
+            </tr>
+        </tbody></table>
+                </td>
+                <td align="center" valign="top">
+        <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+            <tbody><tr>
+                <td style="text-align: center; color:#0066CC" colspan="2">Updated at Midnight</td></tr>
+            
+            
+            
+            
+            <tr>
+                <td style="text-align: Left;" class="data1">something</td>		
+                <td style="text-align: right;" class="data1" nowrap="nowrap">
+                                        <span class="convRain" style="">data</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" class="datahead" colspan="2">Cloud Height</td>
+            </tr>
+            <tr>
+                
+            </tr>
+            <tr>
+                <td class="data2" align="left">Cloud Height:</td>
+                <td class="data2" style="text-align: right;">
+                    <span class="ajax" id="ajaxcloudheight">%cloudheight% ft</span>
 
+<img src="cloudheight.gif">
+                </td>
+            </tr>  
+        </tbody></table>
+                </td>
+                <td align="center" valign="middle">
+        <table border="0" cellpadding="2" cellspacing="0" style="width:180px">
+            <tbody><tr>
+                <td class="data1" style="text-align: center; color:#0066CC"><strong>HIGHS:</strong></td>
+                <td class="data1" style="text-align: center; color:#0066CC"><strong>LOWS:</strong></td>
+            </tr>
+            <tr>
+                <td class="data1" style="text-align: center; font-size: 11px;">
+                    <span class="convTemp" style="">%recordhightemp%&amp;deg;F</span><br>
+                    %recordhightempmonth%/%recordhightempday%/%recordhightempyear%                </td>
+                <td class="data1" style="text-align: center; font-size: 11px;">
+                    <span class="convTemp" style="">%recordlowtemp%&amp;deg;F
 
-
-
-
-
-
-
-
-        
-        
-     </tbody></table>
-
-
-		    <td class="datahead" style="
-    width: 235px;
-    height: 23px;
-">Snowfall (T usually means trace</td><tbody style="
-"></tbody>
-		  <table width="250" border="0" cellpadding="2" cellspacing="0">
-              <tbody><tr style="
-    width: 105px;
-"></tr>
-</tbody><tbody><tr>
-                <td class="data1">Snowfall Today:</td>
-                <td style="text-align: center;" class="data1">%snowtodayin.%</td>
-              </tr>
-              <tr>
-                <td class="data1">%monthname% Snowfall</td>
-                <td style="text-align: right;" class="data1">%snowmonthin.%</td>
-              </tr>
-              <!--   moonrise='5:10 am' before moonset='5:26 pm' today -->
-              <tr>
-                <td class="data1">This Season:</td>
-                <td style="text-align: right;" class="data1">%snowseasonin.%</td>
-              </tr>
-              <tr>
-                <td class="data1">Snow Days in %monthname%</td>
-                <td style="text-align: right;" class="data1">%snowdaysthismonth%</td>
-              </tr>
-                         </tbody></table><table width="250" border="0" cellpadding="3" cellspacing="3" style="
-    padding-right: 0;
+</span><br>%recordlowtempmonth%/%recordlowtempday%/%recordlowtempyear%
+</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" class="datahead" colspan="2">Daytime Records</td>
+            </tr>
+            <tr>
+                <td class="data2" style="text-align: center; font-size: 11px;">
+                                           <span class="convTemp" style="">%warmestdayonrecord%</span>
+                    <br></td>
+                <td class="data2" style="text-align: center; font-size: 11px;">
+                       <span class="convTemp" style="">%coldestdayonrecord%</span><br></td>  
+            </tr>
+            <tr>
+                <td style="text-align: center;" class="datahead" colspan="2">Nitetime Records</td>
+            </tr>
+            <tr>
+                <td class="data1" style="text-align: center; font-size: 11px;">
+                       <span class="convTemp" style="">%warmestnightonrecord%</span><br></td>
+                <td class="data1" style="text-align: center; font-size: 11px;">
+                       <span class="convTemp" style="">%coldestnightonrecord%</span><br></td>
+            </tr>
+            <tr>
+                <td class="data2" style="text-align: center;  font-size: 6pt;" colspan="2">
+                    ICN:18 | S3C2:1                    <span class="ajax" id="ajaxvers">| Ajax 3.xx</span><br>
+                    ISS:Ok |                 </td>
+            </tr>
+        </tbody></table>
+                </td>
+                <td class="data1" align="center" style="font-size: 9px; border:none;text-align: center">
+                    <strong>Tonight<br><br></strong><img src="forecasticon5day1.gif" alt="Tonight: Mostly Cloudy" title="Tonight: Mostly cloudy. Low around 34, with temperatures rising to around 36 overnight. North wind 5 to 8 mph." style="
+    width: 55px;
+"><br>Mostly Cloudy <br>                </td>
+            </tr>
+        </tbody></table>
+        <table border="0" cellpadding="2" cellspacing="1" style="width:100%">
+            </table>
+        <table border="1" cellpadding="2" cellspacing="1" style="width:100%;">
+            <tbody><tr style="
+    width: 500px;
 ">
-   <tbody><tr>
-     <td style="text-align: left" class="datahead">&nbsp;NWS Weather Forecast&nbsp; -  Outlook:&nbsp;Overnight &amp; Thursday</td>
-     </tr>
-     <tr>
-       <td align="center">
-	    <table width="620" border="0" cellpadding="3" cellspacing="3">
-           <tbody><tr>
-		   <td class="data1" style="width: 80px;font-size: 8pt;border: none;text-align: center" valign="middle" align="center"><strong><strong>%5dayforecastdayday1%<br><br></strong><img src="forecasticon5day1.gif" alt=" %forecasticonword%" title="%5dayforecastday1%." style="
-    width: 55px;
-"><br><br></strong><br></td>
-           <td style="width: 504px;" class="data1"><b>NWS forecast:</b> %5dayforecastday1%<br>
-		   	    </td>
-           </tr>
-		   <tr><td colspan="2">&nbsp;</td></tr>
-           <tr>
-		   <td class="data1" style="width: 80px;font-size: 8pt; border:none; text-align: center" valign="middle" align="center"><strong><strong>%5dayforecastdayday2%<br><br></strong><img src="forecasticon5day2.gif" alt="" title="%5dayforecastdayday2%: %5dayforecastdayday2%:" style="
-    width: 55px;
-"><br><br></strong><br></td>
-           <td style="width: 504px;" class="data1"><b>NWS forecast:</b>%5dayforecastday2%</td>
-           </tr>
-       </tbody></table>
-	 </td>
-   </tr>
- </tbody></table>
+                <td style="text-align: left" class="datahead">   NWS Weather Forecast    -    
+                    Outlook   Today &amp; Tonight</td>
+            </tr>
+            <tr>
+                <td class="data1" align="center" valign="middle">
+        <table border="0" cellpadding="2" cellspacing="3" style="width:100%">
+            <tbody><tr align="center">
+                <td style="font-size: 9px;border: none;text-align: center" valign="middle" align="center"><strong>
+                    <strong>Today<br><br></strong><img src="./forecast/images/bkn.jpg" alt="Today: Mostly Cloudy" title="Today: Mostly cloudy, with a high near 59. West wind around 9 mph."><br>Mostly Cloudy <br><br></strong>
+                </td>
+                <td style="width:240px; text-align: left">
+                    <b>NWS forecast:</b> Mostly cloudy, with a high near 59. West wind around 9 mph.<br>
+                </td>
+                <td style="font-size: 9px; border:none; text-align: center" valign="middle" align="center"><strong>
+                    <strong>Tonight<br><br></strong><img src="./forecast/images/nbkn.jpg" alt="Tonight: Mostly Cloudy" title="Tonight: Mostly cloudy. Low around 34, with temperatures rising to around 36 overnight. North wind 5 to 8 mph."><br>Mostly Cloudy <br><br></strong>
+                </td>
+                <td style="width:240px; text-align: left">
+                    <b>NWS forecast:</b> Mostly cloudy. Low around 34, with temperatures rising to around 36 overnight. North wind 5 to 8 mph.            
+                </td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+        <table border="1" cellpadding="2" cellspacing="1" style="width:100%">
+            <tbody><tr>
+                <td style="text-align: left" class="datahead">   NWS Short Term Weather Forecast</td>
+            </tr>
+        </tbody></table>
+                </td>
+            </tr>
+            <tr>
+                <td class="data1">
+        <table border="1" cellpadding="2" cellspacing="2" style="text-align:center; width:100%">
+            <tbody><tr>
+                <td valign="top" style="font-size: 10px;">
+                    <strong>Saturday<br><br></strong><img src="./forecast/images/sct.jpg" alt="Saturday: Mostly Sunny" title="Saturday: Mostly sunny. High near 55, with temperatures falling to around 52 in the afternoon. Northwest wind around 6 mph."><br>Mostly Sunny <br>                </td>
+                <td valign="top" style="font-size: 10px;">
+                    <strong>Saturday<br>Night<br></strong><img src="./forecast/images/nsct.jpg" alt="Saturday Night: Partly Cloudy" title="Saturday Night: Partly cloudy, with a low around 36. South wind around 5 mph."><br>Partly Cloudy <br>                </td>
+                <td valign="top" style="font-size: 10px;">
+                    <strong>Sunday<br><br></strong><img src="./forecast/images/bkn.jpg" alt="Sunday: Partly Sunny" title="Sunday: Partly sunny, with a high near 65. South wind 6 to 20 mph, with gusts as high as 29 mph."><br>Partly Sunny <br>                </td>
+                <td valign="top" style="font-size: 10px;">
+                    <strong>Sunday<br>Night<br></strong><img src="./forecast/images/nwind_bkn.jpg" alt="Sunday Night: Mostly Cloudy" title="Sunday Night: Mostly cloudy, with a low around 50."><br>Mostly Cloudy <br>                </td>
+                <td valign="top" style="font-size: 10px;">
+                    <strong>Monday<br><br></strong><img src="./forecast/images/sct.jpg" alt="Monday: Mostly Sunny" title="Monday: Mostly sunny, with a high near 65."><br>Mostly Sunny <br>                </td>
+                <td valign="top" style="font-size: 10px;">
+                    <strong>Monday<br>Night<br></strong><img src="./forecast/images/nbkn.jpg" alt="Monday Night: Mostly Cloudy" title="Monday Night: Mostly cloudy, with a low around 41."><br>Mostly Cloudy <br>                </td>
+                <td valign="top" style="font-size: 10px;">
+                    <strong>Tuesday<br><br></strong><img src="./forecast/images/bkn.jpg" alt="Tuesday: Partly Sunny" title="Tuesday: Partly sunny, with a high near 60."><br>Partly Sunny <br>                </td>
+            </tr>   
+               
+        </tbody></table>
 
- </div>
- <!-- end of ajax-dashboard.php -->
+                </td>
+            </tr>
+        </tbody></table>
+</div>
+<!-- end of ajax-dashboard.php -->
 
     </div>
 </div><!-- end center -->
 
 </div><!-- end column-dark -->
+<p align="center"><b><br><span class="auto-style1">Severe Thunderstorm Forecast</span><br>
 
+	    SPC Day 1 forecast                                                     
+
+Meso Discussion&amp;   Severe Watches<br>
+
+   
+
+<a href="http://www.spc.noaa.gov/products/outlook/day1otlk.html">
+
+        <img src="http://www.spc.noaa.gov/products/outlook/day1otlk_sm.gif" height="130" width="174"></a>
+	            
+
+<a href="http://www.spc.noaa.gov/products/md/">
+
+        <img src="http://www.spc.noaa.gov/products/md/validmd.png" height="130" width="174"></a>               
+
+<a href="http://www.spc.noaa.gov/products/watch/">
+
+        <img src="http://www.spc.noaa.gov/products/watch/validww.png" height="130" width="174"></a>
+
+</b>
+	</p><p align="center" class="auto-style2">Fire Danger Index   </p><p align="center" class="auto-style2">   <img src="fwipointer.gif"></p><p align="center" class="auto-style2">US Surface Map</p><p align="center" class="auto-style2">
+<img src="http://www.wpc.ncep.noaa.gov/sfc/satsfc.gif" alt="US Surface Map" height="512" width="640">
+</p>
 </div><!-- end main-copy -->
 
     <!-- ##### Footer ##### -->
 
     <div id="footer">
       <div class="doNotPrint">
-        <a href="#header">Top</a> |
-
-      </div><!-- end doNotPrint -->
+        <a href="#header">Top</a> 
 
       <div>
 
-         2023, Your Weather Website<span class="doNotPrint"> |  
-          <a href="http://www.weather-display.com/" title="Powered by Weather-Display">Weather-Display		   (10.37S-(b149)) </a> |
+         2023, thedinosreport.org<span class="doNotPrint"> |  
+          <a href="http://www.weather-display.com/" title="Powered by Weather-Display">Weather-Display		   (10.37S-(b38)) </a> |
 		  <a href="https://validator.w3.org/check?uri=referer">Valid 
           XHTML 1.0</a> |
           <a href="https://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a> 
@@ -746,7 +1327,6 @@ document.write('<b> - updated <span id="ajaxcounter"></span>&nbsp;sec ago</b>');
       </div>
     </div><!-- end id="footer" -->
   </div><!-- end id="page" wrapper -->
-   
+  
 
-
-</body></html>
+</div></body></html>
