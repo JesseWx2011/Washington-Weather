@@ -5,7 +5,7 @@ var clientRawName = "http://dinoswxreport.42web.io/clientraw.txt", //The names o
     clientRawExtraName = "http://dinoswxreport.42web.io/clientrawextra.txt",
     clientRawHourName = "http://dinoswxreport.42web.io/clientrawhour.txt",
     clientRawDailyName = "http://dinoswxreport.42web.io/clientrawdaily.txt",
-    customBaseURL = true, // OPTIONAL: Set the path to where your clientraw files are uploaded e.g., "http://www.goldenbaynzweather.info/wdl/" (note: final backslash and quotation marks must be included). Otherwise leave as: false
+    customBaseURL = false, // OPTIONAL: Set the path to where your clientraw files are uploaded e.g., "http://www.goldenbaynzweather.info/wdl/" (note: final backslash and quotation marks must be included). Otherwise leave as: false
     lang = "en", //Set Language. To see what lanuages are currently supported, see the readme file at: https://github.com/Yerren/FreshWDL/blob/master/README.md
     currentUnits = { //Default units (what the page will display when first loaded)
         pressure: "inHg",        //Options: "hPa" "mmHG" "kPa" "inHg" "mb"
