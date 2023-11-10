@@ -1,10 +1,10 @@
 /*jslint plusplus: true, sloppy: true, indent: 4 */
 
 //Ajust these values to your liking.
-var clientRawName = "http://dinoswxreport.42web.io/clientraw.txt", //The names of your clientraw files
-    clientRawExtraName = "http://dinoswxreport.42web.io/clientrawextra.txt",
-    clientRawHourName = "http://dinoswxreport.42web.io/clientrawhour.txt",
-    clientRawDailyName = "http://dinoswxreport.42web.io/clientrawdaily.txt",
+var clientRawName = "http://yoshisweatherreport.rf.gd/clientraw.txt", //The names of your clientraw files
+    clientRawExtraName = "http://yoshisweatherreport.rf.gd/clientrawextra.txt",
+    clientRawHourName = "http://yoshisweatherreport.rf.gd/clientrawhour.txt",
+    clientRawDailyName = "http://yoshisweatherreport.rf.gd/clientrawdaily.txt",
     customBaseURL = false, // OPTIONAL: Set the path to where your clientraw files are uploaded e.g., "http://www.goldenbaynzweather.info/wdl/" (note: final backslash and quotation marks must be included). Otherwise leave as: false
     lang = "en", //Set Language. To see what lanuages are currently supported, see the readme file at: https://github.com/Yerren/FreshWDL/blob/master/README.md
     currentUnits = { //Default units (what the page will display when first loaded)
