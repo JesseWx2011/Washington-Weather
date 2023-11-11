@@ -6,8 +6,8 @@
 	<link rel="stylesheet" href="https://cdn.aerisapi.com/sdk/js/1.8.0/aerisweather.css">
 	<style>
  		#map {
-			height: 600px;
-			width: 900px;
+			height: 100%;
+			width: 100%;
     		margin: 30px auto;
   		}
   	</style>
@@ -19,66 +19,27 @@
 <script>	 
 window.addEventListener('load', () => { 
 		
-  const aeris = new AerisWeather('DZLMGEFxCvfbQRG7aSN3c', 'N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt');
+	const aeris = new AerisWeather('CLIENT_ID', 'CLIENT_SECRET');	
 	const utils = aeris.utils;
 
 	aeris.apps().then((apps) => {
 		const app = new apps.InteractiveMapApp(document.getElementById('map'), {
             map: {
                 strategy: "mapbox",
-                accessToken: "pk.eyJ1IjoiZ29sZGJibGF6ZXoiLCJhIjoiY2tiZTRnb2Q2MGkxajJwbzV2bWd5dXI5MyJ9.jU-2DqGCBI14K-acyN9RCw",
-                zoom: 2.6300795784519884,
+                accessToken: "pk.eyJ1Ijoid2VhdGhlciIsImEiOiJjaW4wbzllcjkwYWtrd2JsdWl3dG1hZjZ1In0.AdcjoWQiVfvjHfOB0nsyeQ",
+                zoom: 5,
                 center: {
-                    lat: 31.7137,
-                    lon: -81.2218
+                    lat: 44.8,
+                    lon: -93.47
                 },
                 timeline: {
-                    from: -7200,
-                    to: 32400
+                    from: -10800,
+                    to: 28800
                 }
             },
             panels: {
                 layers: {
-                    buttons: [{
-                            title: "Radar",
-                            value: "radar"
-                        },{
-                            title: "Forecast Radar",
-                            value: "fradar"
-                        },{
-                            title: "Forecast High Temps",
-                            value: "ftemperatures-max"
-                        },{
-                            title: "Forecast Low Temps",
-                            value: "ftemperatures-min"
-                        },{
-                            title: "Forecast Snow Accum",
-                            value: "fqsf-accum"
-                        },{
-                            title: "Forecast Wind Chill",
-                            value: "fwind-chill"
-                        },{
-                            title: "Forecast Heat Index",
-                            value: "fheat-index"
-                        },{
-                            title: "Forecast Jet Stream (250mb)",
-                            value: "fjet-stream"
-                        },{
-                            title: "Drought Monitor",
-                            value: "drought-monitor"
-                        },{
-                            title: "6-10d Temp Outlook",
-                            value: "temperatures-outlook-6-10d-cpc"
-                        },{
-                            title: "6-10d Precip Outlook",
-                            value: "precip-outlook-6-10d-cpc"
-                        },{
-                            title: "8-14d Temp Outlook",
-                            value: "temperatures-outlook-8-14d-cpc"
-                        },{
-                            title: "8-14d Precip Outlook",
-                            value: "precip-outlook-8-14d-cpc"
-                        }],
+                    buttons: [],
                     enabled: true,
                     toggleable: false,
                     position: {
@@ -101,7 +62,7 @@ window.addEventListener('load', () => {
                     }
                 },
                 search: {
-                    enabled: true,
+                    enabled: false,
                     toggleable: false,
                     position: {
                         pin: "top",
@@ -112,7 +73,7 @@ window.addEventListener('load', () => {
                     }
                 },
                 legends: {
-                    enabled: true,
+                    enabled: false,
                     toggleable: true,
                     position: {
                         pin: "bottomright",
@@ -137,13 +98,120 @@ window.addEventListener('load', () => {
         });
 		
 		app.on('ready', () => {
+			// configure views for local weather info panel
+			app.panels.info.setContentView('localweather', {
+                views: [{
+                        renderer: "place"
+                    },{
+                        renderer: "alerts"
+                    },{
+                        renderer: "obs"
+                    },{
+                        renderer: "forecast"
+                    },{
+                        renderer: "outlook"
+                    },{
+                        renderer: "hazards"
+                    },{
+                        renderer: "units"
+                    }]
+            });
+		
 			// show info panel for location when map is clicked
 			app.map.on('click', (e) => {
 				app.showInfoAtCoord(e.data.coord, 'localweather', 'Local Weather');
 			});
+			// load in MapsGL sdk and set up relevant layer controls
+			aeris.mapsgl(app, {
+				version: '1.3.2',
+				layers: [{
+                        title: "Temperatures",
+                        value: "temperatures"
+                    },{
+                        title: "Radar",
+                        value: "radar"
+                    },{
+                        title: "Heat Index",
+                        value: "heat-index"
+                    },{
+                        title: "Stormcell Cones",
+                        value: "stormcells-cones"
+                    },{
+                        title: "Storm Reports",
+                        value: "stormreports"
+                    },{
+                        title: "Stormcell Position",
+                        value: "stormcells-positions"
+                    },{
+                        title: "AQI",
+                        value: "air-quality-index"
+                    },{
+                        title: "Stormcell Tracks",
+                        value: "stormcells-tracks"
+                    },{
+                        title: "Tide Height",
+                        value: "tide-heights"
+                    },{
+                        title: "Forecast Feels Like",
+                        value: "ffeels-like"
+                    },{
+                        title: "Drought Monitor",
+                        value: "drought-monitor"
+                    },{
+                        title: "Forecast Temperatures",
+                        value: "ftemperatures"
+                    },{
+                        title: "Forecast Wind Speed",
+                        value: "fwind-speeds"
+                    },{
+                        title: "Road Weather Summary - US",
+                        value: "road-weather-summary-us"
+                    },{
+                        title: "Earthquakes",
+                        value: "earthquakes"
+                    },{
+                        title: "Convective Outlook Outline",
+                        value: "convective-outline"
+                    },{
+                        title: "Convective Outlook",
+                        value: "convective"
+                    },{
+                        title: "MSLP Contours",
+                        value: "pressure-msl-contour"
+                    },{
+                        title: "Stormcells",
+                        value: "stormcells"
+                    },{
+                        title: "MSLP",
+                        value: "pressure-msl"
+                    },{
+                        title: "Wind Chill",
+                        value: "wind-chill"
+                    },{
+                        title: "Alerts",
+                        value: "alerts"
+                    },{
+                        title: "Feels Like",
+                        value: "feels-like"
+                    },{
+                        title: "Dew Point",
+                        value: "dew-points"
+                    },{
+                        title: "1hr Temp Change",
+                        value: "temperatures-1hr-change"
+                    },{
+                        title: "24hr Temp Change",
+                        value: "temperatures-24hr-change"
+                    }]
+			}).then(({controller, mapsgl }) => {
+				controller.addDataInspectorControl({ event: 'move'});
+				
+				app.getPanel('layers').select(['temperatures']);
+			
+			});
 
-			// select initial layers
-			app.map.addLayers(['radar']);
+			// start playing the map animation
+			app.map.timeline.play();
 		});
 		
 		
