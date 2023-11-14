@@ -31,8 +31,18 @@
                         enabled: true
                     }
                 },
+                nearby: {
+                    request: {
+                        limit: 8
+                    }
+                },
+                shortterm: {
+                    request: {
+                        limit: 8
+                    }
+                },
                 forecast: {
-                    type: "detailed"
+                    type: "daynight"
                 },
                 maps: {
                     animation: {
@@ -59,7 +69,7 @@
                             },{
                                 value: "temperatures,clip-us-flat",
                                 title: "Temps"
-                            }],
+                            },{}],
                         regions: [{
                                 zoom: 7,
                                 title: "Local"
@@ -73,7 +83,7 @@
 
             // load data and render the view for a specific location
             view.load({
-                p: "washington, dc"
+                p: "washington,dc"
             });
             
         });
