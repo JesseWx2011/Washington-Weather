@@ -6,16 +6,23 @@ weather=input ("What is the current weather observation?")
 print ("You Observed,", weather)
 
 temp=input ("What is the current temperature?")
-print ("You Observed,", temp)
+print ("The Temperature is", temp)
+
+
+wind=input ("What is the currrent wind direction and speed?")
+print ("The Wind is", wind)
 
 location=input ("Your Location?")
-print ("Your Location is,", location)
+print ("The Inputted Location is,", location)
 
 
-print ("Your Full Observation: The Location is", location, "and you observed..", weather, "and the temperature is", temp)
+print ("Your Full Observation: The Location is", location, "and you observed..", weather, "and the temperature is", temp, "and the wind is", wind)
 
 print ("If you like this code, check out my other scripts on github! My Username is JesseLikesWeather :)")
 
+print ("If you are in the United States, check the weather report for your area at https://weather.gov/")
+
+
 #I wrote the temperature input script just 4 minutes later.
 
-O
+#Last Update at 9:59 AM EDT 12/7/23 
