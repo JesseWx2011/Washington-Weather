@@ -1,0 +1,48 @@
+<!-- This is the JavaScript file -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    // Script for showing the Place Name
+    jQuery(document).ready(function($) {
+      $.ajax({
+         url: "https://api.aerisapi.com/observations/andrews,md?client_id=Ok3aWX6hA5NczrIqqEzEz&client_secret=vVjMvIFvUUGx86dYlz4uCsqtIg4V47tVP8a6Kwf3"
+      })
+      .done(function(json) {
+            if (json.success == true) {
+               var place = json.response.place;
+               $('#placename').html('Weather Report for ' + place.name + ', ' + place.state + '');
+            }
+            else {
+               alert('An error occurred: ' + json.error.description);
+            }
+        });
+   });
+
+// Script for showing the temperature
+   jQuery(document).ready(function($) {
+      $.ajax({
+         url: "https://api.aerisapi.com/observations/andrews,md?client_id=Ok3aWX6hA5NczrIqqEzEz&client_secret=vVjMvIFvUUGx86dYlz4uCsqtIg4V47tVP8a6Kwf3"
+      })
+      .done(function(json) {
+            if (json.success == true) {
+               var ob = json.response.ob;
+               $('#temperature').html('' + ob.tempF + '&deg;F');
+            }
+            else {
+               alert('An error occurred: ' + json.error.description);
+            }
+        });
+   });
+</script>
+<!-- This is the HTML file -->
+<div id="placename" style="
+font-family: Poppins; font-size: 26px;"></div>
+<div id="temperature" style="
+font-family: Arial, Bold; font-size: 53px;"></div>
+
+
+
+
+<!-- This is the CSS File -->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+</style>
