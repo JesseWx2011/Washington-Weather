@@ -16,7 +16,21 @@
             }
         });
    });
-
+   // Script for the weather observation
+   jQuery(document).ready(function($) {
+      $.ajax({
+         url: "https://api.aerisapi.com/observations/andrews,md?client_id=Ok3aWX6hA5NczrIqqEzEz&client_secret=vVjMvIFvUUGx86dYlz4uCsqtIg4V47tVP8a6Kwf3"
+      })
+      .done(function(json) {
+            if (json.success == true) {
+               var ob = json.response.ob;
+               $('#weatherobservation').html('Weather Condition: ' + ob.weather + '');
+            }
+            else {
+               alert('An error occurred: ' + json.error.description);
+            }
+        });
+   });
 // Script for showing the temperature
    jQuery(document).ready(function($) {
       $.ajax({
@@ -32,17 +46,91 @@
             }
         });
    });
+   // Script for the wind information
+   jQuery(document).ready(function($) {
+      $.ajax({
+         url: "https://api.aerisapi.com/observations/andrews,md?client_id=Ok3aWX6hA5NczrIqqEzEz&client_secret=vVjMvIFvUUGx86dYlz4uCsqtIg4V47tVP8a6Kwf3"
+      })
+      .done(function(json) {
+            if (json.success == true) {
+               var ob = json.response.ob;
+               $('#wind').html('The wind is blowing to the ' + ob.windDir + ' at ' + ob.windMPH + ' mph');
+            }
+            else {
+               alert('An error occurred: ' + json.error.description);
+            }
+        });
+// Script for the wind dewpoint info
+   jQuery(document).ready(function($) {
+      $.ajax({
+         url: "https://api.aerisapi.com/observations/andrews,md?client_id=Ok3aWX6hA5NczrIqqEzEz&client_secret=vVjMvIFvUUGx86dYlz4uCsqtIg4V47tVP8a6Kwf3"
+      })
+      .done(function(json) {
+            if (json.success == true) {
+               var ob = json.response.ob;
+               $('#dewpoint').html('The Dew Point is ' + ob.dewpointF + '&deg;, giving us the relative humidity of ' + ob.humidity + '%');
+            }
+            else {
+               alert('An error occurred: ' + json.error.description);
+            }
+        });
+   });
+   });
+   // Script for the barometer info
+   jQuery(document).ready(function($) {
+      $.ajax({
+         url: "https://api.aerisapi.com/observations/andrews,md?client_id=Ok3aWX6hA5NczrIqqEzEz&client_secret=vVjMvIFvUUGx86dYlz4uCsqtIg4V47tVP8a6Kwf3"
+      })
+      .done(function(json) {
+            if (json.success == true) {
+               var ob = json.response.ob;
+               $('#barometric-pressure').html('Barometric Pressure is ' + ob.pressureIN + '0 inHg');
+            }
+            else {
+               alert('An error occurred: ' + json.error.description);
+            }
+        });
+   });
 </script>
 <!-- This is the HTML file -->
+<head>
+   <body>
 <div id="placename" style="
 font-family: Poppins; font-size: 26px;"></div>
 <div id="temperature" style="
 font-family: Arial, Bold; font-size: 53px;"></div>
-
-
+<div id="weatherobservation" style="
+font-family: Poppins; font-size: 26px;"></div>
+<div class="icon">
+</div>
+<div id="wind" style="
+font-family: Poppins; font-size: 26px;"></div>
+<div id="dewpoint" style="
+font-family: Poppins; font-size: 26px;"></div>
+<div id="barometric-pressure" style="
+font-family: Poppins; font-size: 26px;"></div>
+<div id="forecast" style="
+font-family: Poppins; font-size: 26px;"></div>
+ </body>
+</head>
 
 
 <!-- This is the CSS File -->
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 </style>
+<!-- The Bottom Script -->
+<script>
+         // Script for the Weather Forecast
+         jQuery(document).ready(function($) {
+      $.ajax({
+         url: "https://api.aerisapi.com/forecasts/andrews,md?filter=day&limit=1&client_id=Ok3aWX6hA5NczrIqqEzEz&client_secret=vVjMvIFvUUGx86dYlz4uCsqtIg4V47tVP8a6Kwf3"
+      })
+      .done(function(json) {
+            if (json.success == true) {
+               var periods = json.response.periods;
+               $('#forecast').html('Today: ' + success + '.');
+               }
+        });
+   });
+</script>
