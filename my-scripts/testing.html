@@ -1,0 +1,28 @@
+<link href="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.css" rel="stylesheet" />
+<script src="https://cdn.aerisapi.com/wxblox/latest/aeris-wxblox.min.js"></script>
+
+<!-- designate the view's target element -->
+<div id="local-forecast"></div>
+
+<script type="text/javascript">
+
+// configure Aeris API access keys
+const aeris = new AerisWeather('Ok3aWX6hA5NczrIqqEzEz', 'FuvXZCEwVccS8uVwdbsLOZ3E3qBvU7Wi2MMIXZJn');
+
+// wait for the WeatherBlox library to be fully loaded and set up
+aeris.on('ready', () => {
+
+     // set widget variable
+     var localForecast = new aeris.wxblox.views.Forecast('#local-forecast');
+
+     // set API request parameters to be used when requesting data
+     var params = { 
+          p: ':auto',
+          limit: 5
+     };
+
+     // load and render the view
+     localForecast.load(params);
+});
+
+</script>
