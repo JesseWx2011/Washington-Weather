@@ -1,5 +1,3 @@
-this='ofthat'
-that='somethingelse'
+print ("I just learned python hehehe")
 
-  strategy='GET' 
-  code href-
+ ge
