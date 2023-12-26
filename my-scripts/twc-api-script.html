@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Script Written December 26th 2023 -->
+  <!-- Script Written December 26th 2023, Modified December 26th 2023. -->
     <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="", initial scale=1.0"></meta>
@@ -13,19 +13,38 @@
     async function getWx() {   
         const response = await fetch(api_url);
         const data = await response.json();
-        console.log(data.latitude);
-        const {forecast, narrative_512char, } = data;
+        const {forecast, narrative_512char, narrative_32char, icon_code } = data;
         console.log(narrative_512char);
+        console.log(narrative_32char)
+        console.log(icon_code)
+
 
         document.getElementById('wx').textContent = forecast.narrative_512char;
+        document.getElementById('shortwx').textContent = forecast.narrative_32char;
 
     }
-
     getWx();
+    // Here for seperation
+    getWxData(); {
+   const api2_url = ('https://api.weather.com/v3/wx/forecast/daily/5day?icaoCode=KDEN&units=e&language=en-US&format=json&apiKey=e1f10a1e78da46f5b10a1e78da96f525')
+   async function getWxIcon() {
+    const response = await fetch(api2_url);
+    const icon = await response.json();
+    const {wxPhraseShort} = icon;
+    console.log(wxPhraseShort)
 
+    document.getElementById('wxphrase').textContent = wxPhraseShort,1;
+   }
+}
+getWxData();
    </script>
    <h1>Today:</h1>
-  <h5 id="wx">The Forecast is unavaliable  ;(</h5>
+  <h5 id="wx">The Forecast is unavaliable </h5>
+  <h5 id="showshortversion">Short Version:</h5>
+    <img id="icon"></img> 
+  <h5 id="shortwx"></h5>
+
+  <h5 id="wxphrase"></h5>
 
 </div>
     </div>
