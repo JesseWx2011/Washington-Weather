@@ -1,0 +1,45 @@
+<head>
+    <title>Active Tornado Warnings</title>
+    <meta charset="UTF-8" /> 
+</head> 
+<div align="center">
+  <body style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+    <div align="center">
+    <h1>Active Tornado Warnings</h1>
+     <div class="warning-card">
+         <h2>There are</h2>
+         <h1 class="warningnum" id="warncount">0</h1>
+         <h3 class="warnsay">Tornado Warnings Now</h3>
+         <h3 class="credit">This project/code was built by: Jesse Hasty/Chesham Academy</h3>
+        </div>
+ </div>
+</div>
+</body>
+<style>
+    body {
+        background-color: transparent;
+        align-items: center;
+    }
+    .warning-card {
+        background-color: darkred;
+        width: 300px;
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .warningnum {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 48px;
+    }
+</style>
+<script>
+    getAlert();  
+  const api_url = `https://api.aerisapi.com/alerts/summary/minneapolis,mn?radius=2500miles&filter=severe;tornado&client_id=DZLMGEFxCvfbQRG7aSN3c&client_secret=N63dulcmKzQTrWjIrTe2aGKmOw5AhERWWUmjHQKt`;
+    async function getAlert() {   
+        const wx = await fetch(api_url);
+        const data = await wx.json(); 
+        const {response, summary, count} = data;
+  
+        document.getElementById('warncount').textContent = response[0].summary.count;
+    }
+        getAlert();
+</script>
