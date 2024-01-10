@@ -10,6 +10,7 @@
          <h2>There are</h2>
          <h1 class="warningnum" id="warncount">0</h1>
          <h3 class="warnsay">Tornado Warnings Now</h3>
+         <p class="note">Updates Every 3 Minutes</p>
          <h3 class="credit">This project/code was built by: Jesse Hasty/Chesham Academy</h3>
         </div>
  </div>
@@ -42,4 +43,6 @@
         document.getElementById('warncount').textContent = response[0].summary.count;
     }
         getAlert();
+
+        setInterval(getAlert, 180000);
 </script>
